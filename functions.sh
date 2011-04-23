@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#TODO: Get the rpmforge versions out of here.
 
 usage() {
 	echo "Usage: $0 <variant> || --help"
@@ -51,6 +52,8 @@ system_update() {
 		apt-get install -y bash-completion locate ntp htop build-essential debian-archive-keyring pigz git gettext dpkg-dev nload curl apt-file sloccount aptitude tree irssi
 		apt-file update	
 		aptitude update
+
+		#TODO: Make this configurable.
 		echo "America/New_York" > /etc/timezone # /usr/share/zoneinfo
 		dpkg-reconfigure -f noninteractive tzdata
 	fi

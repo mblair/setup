@@ -6,7 +6,7 @@ cd checkinstall
 make -j4
 make install #No choice.
 
-#This is to work around nosuid tmp dirs that hosts like Burstnet use.
+#This works around nosuid tmp dirs that hosts like Burstnet use.
 alias checkinstall='BASE_TMP_DIR=/var/checkinstall checkinstall'
 mkdir /var/checkinstall
 
@@ -25,9 +25,3 @@ echo "ACCEPT_DEFAULT=1" >> /usr/local/checkinstallrc
 echo "INSTALL=1" >> /usr/local/checkinstallrc
 echo "DEBUG=2" >> /usr/local/checkinstallrc
 echo "BASE_TMP_DIR=/var/checkinstall" >> /usr/local/checkinstallrc
-
-if [ $variant == "server" ]; then
-	echo "served."
-else
-	echo "working."
-fi
