@@ -1,0 +1,32 @@
+if [ $OS = "CentOS" ]; then
+	yum -yq remove vim-common
+else
+	aptitude remove -y vim-runtime
+fi
+
+if [ $OS = "CentOS" ]; then
+	yum -yq install ncurses-devel
+else
+	aptitude -y install libncurses5-dev
+fi
+
+#TODO: Make this work with Fedora 15.
+if [ $variant == "workstation" ]; then
+	aptitude install -y libgtk2.0-dev libxt-dev libgnomeui-dev
+fi
+
+cd /home/matt/src
+hg clone https://vim.googlecode.com/hg/ vim
+cd vim
+PATH="/home/matt/src/python$PYTHON_VER/bin:$PATH" #Hack to make Vim use a juicy Python.
+
+#TODO: enable-gui is workstation only.
+if [ $variant == "workstation" ]; then
+	./configure --enable-pythoninterp --enable-multibyte --with-features=huge --enable-gui=gnome2 --enable-cscope
+else
+	./configure --enable-pythoninterp --enable-multibyte --with-features=huge --enable-cscope
+fi
+
+PATCH_LEVEL=`grep -A3 'static int included_patches' src/version.c | tr -dc '[:digit:]'`
+make -j4
+checkinstall --pkgname="matt-vim" --pkgversion="$VIM_VER.$PATCH_LEVEL" make install
