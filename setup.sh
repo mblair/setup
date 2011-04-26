@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #miminal, versions, functions, checkinstall, git, vim
 
+#TODO: Get this all working with Debian, Fedora, Arch & Gentoo.
 #TODO: Just put ". ~/.bashrc" in ~/.bash_profile for Ubuntu, remove ". ~/.bash_profile" from CentOS's .bashrc (<- ?)
 
 # http://stackoverflow.com/questions/4336035/performance-profiling-tools-for-shell-scripts/4338046#4338046
