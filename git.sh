@@ -23,4 +23,4 @@ tar -x -C /usr/local/share/man/ -vf git-manpages-$GIT_VER.tar.bz2
 hash -r #to clear out the old git (/usr/bin/git), which no longer exists.
 git clone git://github.com/visionmedia/git-extras.git #git-summary, other goodies
 cd git-extras
-checkinstall --pkgname="git-extras" --provides="git-extras" --pkgversion="$(git rev-list HEAD -n1)" make install
+checkinstall --pkgname="git-extras" --provides="git-extras" --pkgversion="1-$(git rev-list HEAD -n1)" make install
