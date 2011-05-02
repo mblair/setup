@@ -13,5 +13,5 @@ TODO
 
 To grab these from a bare server, run one of the following:
 
-`curl -Lsf https://github.com/mblair/setup_scripts/tarball/master | tar xz`
-`wget --trust-server-names --no-check-certificate https://github.com/mblair/setup_scripts/tarball/master`
+* `curl -Lsf https://github.com/mblair/setup_scripts/tarball/master | tar xz`
+* `wget --trust-server-names --no-check-certificate https://github.com/mblair/setup_scripts/tarball/master`
