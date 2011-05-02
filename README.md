@@ -10,3 +10,7 @@ TODO
 * Gentoo support.
 * Debian support.
 * Arch support.
+
+To grab these from a bare server, run the following:
+
+`curl -Lsf https://github.com/mblair/setup_scripts/tarball/master | tar xz`
