@@ -8,6 +8,10 @@ cd /home/matt/src
 wget http://python.org/ftp/python/$PYTHON_VER/Python-$PYTHON_VER.tar.bz2
 tar xjvf Python-$PYTHON_VER.tar.bz2
 cd Python-$PYTHON_VER
+
+#zlib issues on Ubuntu Natty, this may be temporary.
+rm -r Modules/zlib
+
 ./configure --prefix=/home/matt/src/python$PYTHON_VER --with-threads --enable-shared
 make -j4
 make install #Not dangerous. Peep the prefix.
