@@ -13,6 +13,10 @@
 
 shopt -s expand_aliases # so `python setup.py install` within this script uses the new python. saves me from having to specify the full path to the binary every time.
 
+#Save the location of this file, so I can still call the ancillary scripts (git.sh, vim.sh, etc) after `cd`ing around the FS.
+#I'm sourcing the other scripts instead of using a subshell, so this is important.
+WD=`pwd`
+
 #This is for servers with small /tmp mounts. gcc uses this value.
 TMPDIR=/home/matt/src
 
@@ -66,12 +70,12 @@ mkdir /home/matt/src
 set -e # Quit on error.
 set -x # Print the statement before you execute it.
 
-. checkinstall.sh
-. git.sh
-#. sqlite.sh
-#. python.sh
-. vim.sh
-#. percona.sh
+. $WD/checkinstall.sh
+. $WD/git.sh
+. $WD/sqlite.sh
+. $WD/python.sh
+. $WD/vim.sh
+#. $WD/percona.sh
 
 curl http://betterthangrep.com/ack-standalone > /usr/local/bin/ack
 chmod 0755 /usr/local/bin/ack
