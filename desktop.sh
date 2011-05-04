@@ -177,3 +177,7 @@ ln -s /home/matt/Dropbox/purple/prefs.xml /home/matt/.purple/
 #Edit /usr/share/applications/chromium-browser.desktop
 #Exec=/usr/bin/chromium-browser %U
 #Exec=/usr/bin/chromium-browser --password-store=basic %U
+
+#gconftool-2 --set /apps/metacity/general/button_layout --type string ":"
+#gconftool --set /apps/compiz-1/general/screen0/options/hsize --type=int 3
+#gconftool --set /apps/compiz-1/general/screen0/options/vsize --type=int 2

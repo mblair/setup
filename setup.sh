@@ -75,19 +75,21 @@ mkdir -p /home/matt/src
 . $WD/sqlite.sh
 . $WD/python.sh
 . $WD/vim.sh
-#. $WD/percona.sh
-#. $WD/postgresql.sh
 
-if [ $variant == "workstation ]; then
+if [ $variant == "workstation" ]; then
 	. $WD/desktop.sh
 fi
 
 curl http://betterthangrep.com/ack-standalone > /usr/local/bin/ack
 chmod 0755 /usr/local/bin/ack
 
-cp $WD/matt.sh /opt
-chmod 755 /opt/matt.sh
-su -l matt -c "/opt/matt.sh"
+#If it's a workstation, I've already cloned a writable copy of this repo since ssh-add isn't completely automatable.
+if [ $variant == "server" ]; then
+	cd /home/matt
+	git clone https://github.com/mblair/dotfiles
+fi
+
+. $WD/dotfiles.sh
 
 . $WD/ruby-deps.sh
 
@@ -96,5 +98,6 @@ chmod 755 /opt/matt.sh
 su -l matt -c "/opt/ruby.sh"
 
 chown -R matt:matt /home/matt/src
+chown -R matt:matt /home/matt/dotfiles
 
 echo "Done!"
