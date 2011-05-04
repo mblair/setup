@@ -63,12 +63,12 @@ if [ $variant == "server" ]; then
 	useradd -G wheel -m -p `python -c 'import crypt; print crypt.crypt("changeme", "$6$salt$6$");'` matt
 fi
 
-system_update
-
-mkdir /home/matt/src
-
 set -e # Quit on error.
 set -x # Print the statement before you execute it.
+
+system_update
+
+mkdir -p /home/matt/src
 
 . $WD/checkinstall.sh
 . $WD/git.sh
