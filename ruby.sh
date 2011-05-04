@@ -16,5 +16,3 @@ rvm use 1.9.2-head --default
 #Because these rock.
 gem install bundler
 gem install showoff
-
-ln -s /home/matt/dotfiles/bashrc /home/matt/.bashrc

@@ -32,3 +32,14 @@ cp /home/matt/src/vim/runtime/macros/matchit.txt /home/matt/dotfiles/vim/doc/
 mkdir /home/matt/.irssi
 ln -s /home/matt/dotfiles/irssi_config /home/matt/.irssi/config
 sed -i "/identify/ c\\t\tautosendcmd = '/msg nickserv identify $IRC_PASS';" /home/matt/.irssi/config
+
+mv /home/matt/.bashrc /home/matt/.bashrc.default
+ln -s /home/matt/dotfiles/bashrc /home/matt/.bashrc
+
+cat >> /home/matt/.bash_profile << "EOF"
+
+	if [ -f ~/.bashrc ]; then
+		source ~/.bashrc
+	fi
+EOF
+sed -i 's/^\t//' /home/matt/.bash_profile

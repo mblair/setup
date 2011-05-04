@@ -2,7 +2,6 @@
 #miminal, versions, functions, checkinstall, git, vim
 
 #TODO: Get this all working with Debian, Fedora, Arch & Gentoo.
-#TODO: Just put ". ~/.bashrc" in ~/.bash_profile for Ubuntu, remove ". ~/.bash_profile" from CentOS's .bashrc (<- ?)
 
 # http://stackoverflow.com/questions/4336035/performance-profiling-tools-for-shell-scripts/4338046#4338046
 # Used to print timing information & current line number. Coupled with set -x, you get:
@@ -32,7 +31,7 @@ fi
 while [[ $# -gt 0 ]]; do
 
 	token="$1" ; shift
-	
+
 	case "$token" in
 		--server)
 			export variant="server"
@@ -95,7 +94,7 @@ fi
 
 cp $WD/ruby.sh /opt
 chmod 755 /opt/ruby.sh
-su -l matt -c "/opt/ruby.sh"
+su -l -s /bin/bash matt -c "/opt/ruby.sh"
 
 chown -R matt:matt /home/matt/src
 chown -R matt:matt /home/matt/dotfiles

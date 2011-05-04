@@ -108,8 +108,6 @@ aptitude update
 aptitude -y upgrade #for libimobiledevice1 and friends
 aptitude -y install chromium-browser chromium-browser-inspector redshift
 
-mv /home/matt/.bashrc /home/matt/.bashrc.default
-
 #aptitude -y install libreadline-dev scons
 #ln -s /usr/lib32/libstdc++.so.6 /usr/lib32/libstdc++.so
 #cd /home/matt/src
