@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+set -e
+set -x
+
 curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer
 chmod +x rvm-installer
 ./rvm-installer --version latest
