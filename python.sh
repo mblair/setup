@@ -9,8 +9,9 @@ wget http://python.org/ftp/python/$PYTHON_VER/Python-$PYTHON_VER.tar.bz2
 tar xjvf Python-$PYTHON_VER.tar.bz2
 cd Python-$PYTHON_VER
 
-#zlib issues on Ubuntu Natty, this may be temporary.
-rm -r Modules/zlib
+#Attempting to cope with this foolishness:
+#https://wiki.ubuntu.com/MultiarchSpec
+awk "{print} /'\/lib64/{print \"            '/usr/lib/i386-linux-gnu', '/usr/lib/x86_64-linux-gnu'\"}" setup.py > setup.py
 
 ./configure --prefix=/home/matt/src/python$PYTHON_VER --with-threads --enable-shared
 make -j4
