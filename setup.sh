@@ -94,7 +94,7 @@ fi
 . $WD/ruby-deps.sh
 
 cp $WD/ruby.sh /opt
-chmod 755 /opt/matt.sh
+chmod 755 /opt/ruby.sh
 su -l matt -c "/opt/ruby.sh"
 
 chown -R matt:matt /home/matt/src
