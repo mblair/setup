@@ -11,7 +11,10 @@ TODO
 * Debian support.
 * Arch support.
 
-To grab these from a bare server, run one of the following:
+To use these on a fresh Ubuntu server, run the following:
 
+* `apt-get update && apt-get -y install byobu`
+* `byobu`
 * `curl -Lsf https://github.com/mblair/setup_scripts/tarball/master | tar xz`
-* `wget --trust-server-names --no-check-certificate https://github.com/mblair/setup_scripts/tarball/master`
+* `cd mblair-[TAB][CR]`
+* `time ./setup.sh --server 2>&1 | tee ~/output`
