@@ -76,15 +76,25 @@ mkdir -p /home/matt/src
 . $WD/python.sh
 . $WD/vim.sh
 #. $WD/percona.sh
+#. $WD/postgresql.sh
+
+if [ $variant == "workstation ]; then
+	. $WD/desktop.sh
+fi
 
 curl http://betterthangrep.com/ack-standalone > /usr/local/bin/ack
 chmod 0755 /usr/local/bin/ack
 
-chown -R matt:matt /home/matt/src
+cp $WD/matt.sh /opt
+chmod 755 /opt/matt.sh
+su -l matt -c "/opt/matt.sh"
 
-#desktop.sh
-#matt.sh #TODO: Run as `matt`.
-#ruby-deps.sh
-#ruby.sh #TODO: Run as `matt`.
+. $WD/ruby-deps.sh
+
+cp $WD/ruby.sh /opt
+chmod 755 /opt/matt.sh
+su -l matt -c "/opt/ruby.sh"
+
+chown -R matt:matt /home/matt/src
 
 echo "Done!"

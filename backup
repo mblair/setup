@@ -1,0 +1,25 @@
+# For Redmine:
+
+# 1. Checkout the repo and the version tag.
+# 2. Copy database.yml over.
+# 3. Copy email.yml over.
+# 4. Copy files/* over.
+# 5. Copy public/themes/grossman over.
+# 6. `rake generate_session_store`
+# 7. `rake db:migrate RAILS_ENV=production`
+# 8. Restore a DB dump if you're moving to a new DB or server.
+# 9. rake tmp:cache:clear
+# 10. rake tmp:sessions:clear
+# 11. Restart the app server.
+
+#cd /srv && tar cjvf /backups/redmine_fs_`date +%F@%H.%M.%S-%Z`.tar.bz2 redmine/
+# tar xjvf redmine_fs_....
+# cp -R redmine/files/* /srv/redmine/files/
+# cp redmine/config/email.yml /srv/redmine/config
+# cp -R redmine/public/themes/grossman /srv/redmine/public/themes
+
+# mysqldump -u body -pchangeme -h 192.168.0.1 -d body > dump && tar cjvf body_db_daily_`date +%F@%H.%M.%S-%Z`.tar.bz2 dump && rm -f dump
+# bzcat body_[blah] | mysql -u body -pchangeme -D body -h 192.168.0.1
+
+# pg_dump -c redmine -U postgres -C > dump && tar cjvf redmine_db_daily_`date +%F@%H.%M.%S-%Z`.tar.bz2 dump && rm -f dump
+# bzcat redmine_[blah] | psql -U redmine # If you restore as postgres, it won't work. Who knows why?
