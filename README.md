@@ -14,7 +14,7 @@ To use these on an Ubuntu server, run the following:
 * `cd mblair-setup-[TAB][CR]`
 * `time ./setup.sh --server 2>&1 | tee ~/output`
 
-This has been tested on a fresh Linode running Ubuntu 11.04 x86_64. It takes about 40 minutes on a Linode 512; [checkinstall](http://www.asic-linux.com.mx/~izto/checkinstall/) takes up too much of that time for my tastes. I may switch to rcrowley's [debra](http://rcrowley.github.com/debra/) if it's faster and just as good in a non-interactive environment.
+This has been tested on Linodes running Ubuntu 11.04 x86_64 and 10.04 i386. It takes about 35-40 minutes on a Linode 512; [checkinstall](http://www.asic-linux.com.mx/~izto/checkinstall/) takes up too much of that time for my tastes. I may switch to rcrowley's [debra](http://rcrowley.github.com/debra/) if it's faster and just as good in a non-interactive environment.
 
 TODO
 ====
