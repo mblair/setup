@@ -59,7 +59,7 @@ if [ $variant == "server" ]; then
 		groupadd -r wheel
 	fi
 	echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
-	useradd -G wheel -m -p `python -c 'import crypt; print crypt.crypt("changeme", "$6$salt$6$");'` matt
+	useradd -s /bin/bash -G wheel -m -p `python -c 'import crypt; print crypt.crypt("changeme", "$6$salt$6$");'` matt
 fi
 
 set -e # Quit on error.
@@ -94,7 +94,7 @@ fi
 
 cp $WD/ruby.sh /opt
 chmod 755 /opt/ruby.sh
-su -l -s /bin/bash matt -c "/opt/ruby.sh"
+su -l matt -c "/opt/ruby.sh"
 
 chown -R matt:matt /home/matt/src
 chown -R matt:matt /home/matt/dotfiles
