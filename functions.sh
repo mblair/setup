@@ -49,7 +49,14 @@ system_update() {
 	else
 		apt-get update
 		apt-get -y dist-upgrade
-		apt-get install -y bash-completion locate ntp htop build-essential debian-archive-keyring pigz git gettext dpkg-dev nload curl apt-file sloccount aptitude tree irssi
+		apt-get install -y bash-completion locate ntp htop build-essential debian-archive-keyring pigz gettext dpkg-dev nload curl apt-file sloccount aptitude tree irssi
+                if grep 'lucid' /etc/lsb-release 1>/dev/null
+                then
+                        apt-get -y install git-core
+                else
+                        apt-get -y install git
+                fi
+
 		apt-file update	
 		aptitude update
 
