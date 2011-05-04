@@ -16,5 +16,5 @@ To use these on a fresh Ubuntu server, run the following:
 * `apt-get update && apt-get -y install byobu`
 * `byobu`
 * `curl -Lsf https://github.com/mblair/setup_scripts/tarball/master | tar xz`
-* `cd mblair-[TAB][CR]`
+* `cd mblair-setup_scripts-[TAB][CR]`
 * `time ./setup.sh --server 2>&1 | tee ~/output`
