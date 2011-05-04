@@ -11,7 +11,9 @@ cd Python-$PYTHON_VER
 
 #Attempting to cope with this foolishness:
 #https://wiki.ubuntu.com/MultiarchSpec
-awk "{print} /'\/lib64/{print \"            '/usr/lib/i386-linux-gnu', '/usr/lib/x86_64-linux-gnu'\"}" setup.py > setup.py
+#http://bugs.python.org/issue11715
+curl http://hg.python.org/cpython/raw-rev/bd0f73a9538e > barry_multiarch_patch
+patch -p1 < barry_multiarch_patch
 
 ./configure --prefix=/home/matt/src/python$PYTHON_VER --with-threads --enable-shared
 make -j4
