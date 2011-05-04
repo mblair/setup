@@ -94,7 +94,7 @@ aptitude install -y miredo subversion apt-listchanges unrar rar cfv \
 	gstreamer0.10-plugins-bad-multiverse virtualbox-4.0 sun-java6-plugin \
 	sun-java6-jdk electricsheep libnotify-bin ncurses-term ttf-inconsolata \
 	ttf-droid pandoc texlive-latex-recommended texlive-xetex texlive-latex-extra \
-	ubuntu-restricted-extras deluge-torrent pidgin
+	ubuntu-restricted-extras deluge-torrent pidgin k3b
 add-apt-repository ppa:chromium-daily/dev
 add-apt-repository ppa:jonls/redshift-ppa
 
