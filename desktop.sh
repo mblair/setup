@@ -1,4 +1,6 @@
 #TODO: ttf-mscorefonts-installer/debconf-set-selections
+#TODO: not enough postfix automation.
+#TODO: matt- prefix for all checkinstalls.
 
 cd /home/matt/src
 curl https://github.com/rg3/youtube-dl/raw/master/youtube-dl > youtube-dl

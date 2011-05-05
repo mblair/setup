@@ -1,4 +1,6 @@
-#Run bare.sh, then apache.sh first.
+#TODO: separate post-receive diff emails for app and infra.
+#TODO: post-receive infrastructure hooks (swap out config & restart)
+#TODO: cgit
 
 set -e
 set -x
