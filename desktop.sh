@@ -91,12 +91,11 @@ wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | a
 
 apt-get update
 apt-get install -y miredo subversion apt-listchanges unrar rar cfv \
-	xclip openssh-server mp3splt gtkpod chmsee konversation extace \
-	acroread cheese fbreader pitivi gimp gimp-data-extras \
-	gstreamer0.10-plugins-ugly vlc gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad \
-	gstreamer0.10-plugins-ugly-multiverse skype flashplugin-installer \
+	openssh-server mp3splt gtkpod chmsee konversation extace \
+	acroread cheese fbreader gimp gimp-data-extras \
+	gstreamer0.10-plugins-ugly-multiverse skype  \
 	gstreamer0.10-plugins-bad-multiverse virtualbox-4.0 sun-java6-plugin \
-	sun-java6-jdk electricsheep libnotify-bin ncurses-term ttf-inconsolata \
+	electricsheep libnotify-bin ncurses-term ttf-inconsolata \
 	ttf-droid pandoc ubuntu-restricted-extras deluge-torrent pidgin k3b rhythmbox
 
 #TODO: Some other time, too big.
