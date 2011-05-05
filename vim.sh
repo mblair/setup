@@ -7,7 +7,7 @@ fi
 if [ $OS = "CentOS" ]; then
 	yum -yq install ncurses-devel
 else
-	aptitude -y install libncurses5-dev
+	aptitude -y install libncurses5-dev exuberant-ctags
 fi
 
 #TODO: Make this work with Fedora 15 also.

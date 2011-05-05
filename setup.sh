@@ -98,5 +98,6 @@ su -l matt -c "/opt/ruby.sh"
 
 chown -R matt:matt /home/matt/src
 chown -R matt:matt /home/matt/dotfiles
+chown -R matt:matt /home/matt/Deluge_Incoming
 
 echo "Done!"

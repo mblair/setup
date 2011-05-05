@@ -1,5 +1,3 @@
-#TODO: matt- prefix for all checkinstalls.
-
 echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
 
 cd /home/matt/src
@@ -8,7 +6,6 @@ chmod +x youtube-dl
 ln -s /home/matt/src/youtube-dl /usr/local/bin/
 
 #http://mmcgrana.github.com/2010/07/install-java-ubuntu.html
-
 echo "deb http://archive.canonical.com/ubuntu natty partner" >> /etc/apt/sources.list
 echo "deb-src http://archive.canonical.com/ubuntu natty partner" >> /etc/apt/sources.list
 cat << EOD | debconf-set-selections
@@ -45,7 +42,7 @@ git clone git://git.videolan.org/x264
 cd x264
 ./configure
 make -j3
-checkinstall --pkgname=x264 --pkgversion="3:$(./version.sh | \
+checkinstall --pkgname=matt-x264 --pkgversion="3:$(./version.sh | \
     awk -F'[" ]' '/POINT/{print $4"+git"$5}')" --backup=no --deldoc=yes \
     --fstrans=no --default
 
@@ -55,7 +52,7 @@ git clone git://review.webmproject.org/libvpx
 cd libvpx
 ./configure
 make -j3
-checkinstall --pkgname=libvpx --pkgversion="1:$(date +%Y%m%d%H%M)-git" --backup=no \
+checkinstall --pkgname=matt-libvpx --pkgversion="1:$(date +%Y%m%d%H%M)-git" --backup=no \
     --deldoc=yes --fstrans=no --default
 
 cd /home/matt/src
@@ -66,13 +63,13 @@ cd ffmpeg
     --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis \
     --enable-libx264 --enable-libxvid --enable-x11grab --enable-libvpx
 make -j3
-checkinstall --pkgname=ffmpeg --pkgversion="5:$(date +%Y%m%d%H%M)-git" --backup=no \
+checkinstall --pkgname=matt-ffmpeg --pkgversion="5:$(date +%Y%m%d%H%M)-git" --backup=no \
     --deldoc=yes --fstrans=no --default
 hash x264 ffmpeg ffplay ffprobe
 
 cd /home/matt/src/ffmpeg
 make tools/qt-faststart
-checkinstall --pkgname=qt-faststart --pkgversion="$(date +%Y%m%d%H%M)-git" --backup=no \
+checkinstall --pkgname=matt-qt-faststart --pkgversion="$(date +%Y%m%d%H%M)-git" --backup=no \
     --deldoc=yes --fstrans=no --default install -D -m755 tools/qt-faststart \
     /usr/local/bin/qt-faststart
 
@@ -80,7 +77,7 @@ cd /home/matt/src/x264
 make distclean
 ./configure
 make -j3
-checkinstall --pkgname=x264 --pkgversion="3:$(./version.sh | \
+checkinstall --pkgname=matt-x264 --pkgversion="3:$(./version.sh | \
     awk -F'[" ]' '/POINT/{print $4"+git"$5}')" --backup=no --deldoc=yes \
     --fstrans=no --default
 
@@ -134,21 +131,20 @@ apt-get -y install chromium-browser chromium-browser-inspector redshift
 #. /home/matt/.bash_profile #Or else the previous PATH modifications won't carry over.
 #echo "PATH=/home/matt/src/llvm/Release/bin:$PATH" >> /home/matt/.bash_profile
 
-#TODO: Turn off indexing service after you run Konversation the first time.
+#http://www.freetechie.com/blog/disable-nepomuk-desktop-search-on-kde-4-4-2-kubuntu-lucid-10-04/
 mkdir -p /home/matt/.kde/share/apps/konversation/
 ln -s /home/matt/Dropbox/konversationui.rc /home/matt/.kde/share/apps/konversation/
 mkdir -p /home/matt/.kde/share/config/
-#rm -f /home/matt/.kde/share/config/konversationrc
 ln -s /home/matt/Dropbox/konversationrc /home/matt/.kde/share/config/
 
-#Get Redshift to run on startup.
+cd /home/matt/src
+wget http://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
+ar vx google-chrome-unstable_current_amd64.deb
+unlzma data.tar.lzma
+tar xvf data.tar
+cp opt/google/chrome/libpdf.so /usr/lib/chromium-browser
 
-#Download the Chrome deb:
-#http://www.google.com/chrome/intl/en/eula_dev.html?dl=unstable_amd64_deb
-#Extract it, get libpdf.so out of opt/google/chrome
-#Copy that to /usr/lib/chromium-browser
-#Set chromium-browser up to sync, change download location to Desktop, enable global menu support in about:flags
-#Create a chromium-browser bash alias to add --password-store=basic
+sed -i 's/Exec=\/usr\/bin\/chromium-browser %U/Exec=\/usr\/bin\/chromium-browser --password-store=basic %U/' /usr/share/applications/chromium-browser.desktop
 
 cd /home/matt/src
 svn co http://rbeq.googlecode.com/svn/trunk/ rbeq
@@ -160,28 +156,17 @@ ln -s /home/matt/Dropbox/rhythmbox/ rhythmbox
 
 ln -s /home/matt/Dropbox/ssh_config /home/matt/.ssh/config
 chmod 600 /home/matt/.ssh/config
-#Edit /etc/ssh/ssh_config, set HashKnownHosts No so that IP addy autocompletion works for ssh
-#`ssh-copy-id` blah for all of your servers
-
-#Build thumbnails.
-
-#Install Virtualbox Extension Pack, guest OSs & Guest Additions.
-#Install code.google.com/p/feedindicator
-mkdir -p /home/matt/.config/feedindicator
-ln -s /home/matt/Dropbox/feedindicator/feeds.cfg /home/matt/.config/feedindicator/
+sed -i 's/    HashKnownHosts yes/    HashKnownHosts no/' /etc/ssh/ssh_config
 
 mkdir /home/matt/Deluge_Incoming
-#ln -s ~/Dropbox/deluge/[blah] ~/.config/deluge/
+mkdir -p /home/matt/.config/deluge
+for f in /home/matt/Dropbox/deluge/*; do ln -s $f /home/matt/.config/deluge/`basename $f`; done
 
 mkdir -p /home/matt/.purple/
 ln -s /home/matt/Dropbox/purple/accounts.xml /home/matt/.purple/
 ln -s /home/matt/Dropbox/purple/logs/ /home/matt/.purple/
 ln -s /home/matt/Dropbox/purple/prefs.xml /home/matt/.purple/
 
-#Edit /usr/share/applications/chromium-browser.desktop
-#Exec=/usr/bin/chromium-browser %U
-#Exec=/usr/bin/chromium-browser --password-store=basic %U
-
 #gconftool-2 --set /apps/metacity/general/button_layout --type string ":"
-#gconftool --set /apps/compiz-1/general/screen0/options/hsize --type=int 3
-#gconftool --set /apps/compiz-1/general/screen0/options/vsize --type=int 2
+su -l matt -c "gconftool --set /apps/compiz-1/general/screen0/options/hsize --type=int 3"
+su -l matt -c "gconftool --set /apps/compiz-1/general/screen0/options/vsize --type=int 2"

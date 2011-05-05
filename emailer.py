@@ -1,0 +1,25 @@
+import smtplib
+
+fromaddr = 'me@matthewblair.net'
+toaddrs  = ['user@example.com']
+
+subject = "finished"
+
+text = "Your script is done."
+
+message = """\
+From: %s
+To: %s
+Subject: %s
+
+%s
+""" % (fromaddr, ", ".join(toaddrs), subject, text)
+
+username = 'me@matthewblair.net'
+password = 'changeme'
+
+server = smtplib.SMTP('smtp.gmail.com:587')
+server.starttls()
+server.login(username,password)
+server.sendmail(fromaddr, toaddrs, message)
+server.quit()
