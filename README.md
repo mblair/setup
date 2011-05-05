@@ -28,3 +28,4 @@ TODO
 * Figure out how to profile this, possibly [like so](http://stackoverflow.com/questions/4336035/performance-profiling-tools-for-shell-scripts/4338046#4338046).
 * One-step updates based on `versions.sh`
 * Make this a full-blown packaging system, since that hasn't been done before ;-)
+* `grep -r 'TODO' *` from the root of the tree for more.
