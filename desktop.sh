@@ -1,5 +1,5 @@
 cd /home/matt/src
-wget https://github.com/rg3/youtube-dl/raw/master/youtube-dl
+curl https://github.com/rg3/youtube-dl/raw/master/youtube-dl > youtube-dl
 chmod +x youtube-dl
 ln -s /home/matt/src/youtube-dl /usr/local/bin/
 
@@ -28,14 +28,14 @@ acroread acroread/default-viewer boolean true
 EOD
 
 #http://www.panticz.de/install_mx
-cat << EOD | debconfi-set-selections
+cat << EOD | debconf-set-selections
 postfix postfix/mailname string mx
 postfix postfix/main_mailer_type select Internet Site
 EOD
 
 #http://ubuntuforums.org/showpost.php?p=4907079&postcount=1 (x264/libvpx/ffmpeg/qt-faststart)
-apt-get remove ffmpeg x264 libx264-dev
-apt-get install yasm texi2html libfaac-dev libjack-jackd2-dev libmp3lame-dev \
+apt-get -y remove ffmpeg x264 libx264-dev
+apt-get -y install yasm texi2html libfaac-dev libjack-jackd2-dev libmp3lame-dev \
 	libopencore-amrnb-dev libopencore-amrwb-dev libsdl1.2-dev libtheora-dev \
 	libva-dev libvdpau-dev libvorbis-dev libx11-dev libxfixes-dev libxvidcore-dev
 cd /home/matt/src
@@ -47,7 +47,7 @@ checkinstall --pkgname=x264 --pkgversion="3:$(./version.sh | \
     awk -F'[" ]' '/POINT/{print $4"+git"$5}')" --backup=no --deldoc=yes \
     --fstrans=no --default
 
-apt-get remove libvpx-dev
+apt-get -y remove libvpx-dev
 cd /home/matt/src
 git clone git://review.webmproject.org/libvpx
 cd libvpx
@@ -78,7 +78,7 @@ cd /home/matt/src/x264
 make distclean
 ./configure
 make -j4
-sudo checkinstall --pkgname=x264 --pkgversion="3:$(./version.sh | \
+checkinstall --pkgname=x264 --pkgversion="3:$(./version.sh | \
     awk -F'[" ]' '/POINT/{print $4"+git"$5}')" --backup=no --deldoc=yes \
     --fstrans=no --default
 
@@ -93,8 +93,7 @@ aptitude install -y miredo subversion apt-listchanges unrar rar cfv \
 	gstreamer0.10-plugins-ugly-multiverse skype flashplugin-installer \
 	gstreamer0.10-plugins-bad-multiverse virtualbox-4.0 sun-java6-plugin \
 	sun-java6-jdk electricsheep libnotify-bin ncurses-term ttf-inconsolata \
-	ttf-droid pandoc texlive-latex-recommended texlive-xetex texlive-latex-extra \
-	ubuntu-restricted-extras deluge-torrent pidgin k3b rhythmbox
+	ttf-droid pandoc ubuntu-restricted-extras deluge-torrent pidgin k3b rhythmbox
 add-apt-repository ppa:chromium-daily/dev
 add-apt-repository ppa:jonls/redshift-ppa
 
