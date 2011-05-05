@@ -1,6 +1,6 @@
-#TODO: ttf-mscorefonts-installer/debconf-set-selections
-#TODO: not enough postfix automation.
 #TODO: matt- prefix for all checkinstalls.
+
+echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
 
 cd /home/matt/src
 curl https://github.com/rg3/youtube-dl/raw/master/youtube-dl > youtube-dl
@@ -27,9 +27,7 @@ apt-get install -y sun-java6-jdk -y
 update-java-alternatives -s java-6-sun --jre
 
 #http://www.panticz.de/install-acrobat-reader
-cat << EOD | debconf-set-selections
-acroread acroread/default-viewer boolean true
-EOD
+echo "acroread acroread/default-viewer boolean true" | debconf-set-selection
 
 #http://www.panticz.de/install_mx
 cat << EOD | debconf-set-selections
