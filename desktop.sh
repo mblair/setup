@@ -1,3 +1,5 @@
+#TODO: ttf-mscorefonts-installer/debconf-set-selections
+
 cd /home/matt/src
 curl https://github.com/rg3/youtube-dl/raw/master/youtube-dl > youtube-dl
 chmod +x youtube-dl
@@ -77,7 +79,7 @@ checkinstall --pkgname=qt-faststart --pkgversion="$(date +%Y%m%d%H%M)-git" --bac
 cd /home/matt/src/x264
 make distclean
 ./configure
-make -j4
+make -j3
 checkinstall --pkgname=x264 --pkgversion="3:$(./version.sh | \
     awk -F'[" ]' '/POINT/{print $4"+git"$5}')" --backup=no --deldoc=yes \
     --fstrans=no --default
@@ -85,8 +87,8 @@ checkinstall --pkgname=x264 --pkgversion="3:$(./version.sh | \
 echo "deb http://download.virtualbox.org/virtualbox/debian natty contrib" >> /etc/apt/sources.list
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | apt-key add -
 
-aptitude update
-aptitude install -y miredo subversion apt-listchanges unrar rar cfv \
+apt-get update
+apt-get install -y miredo subversion apt-listchanges unrar rar cfv \
 	xclip openssh-server mp3splt gtkpod chmsee konversation extace \
 	acroread cheese fbreader pitivi gimp gimp-data-extras \
 	gstreamer0.10-plugins-ugly vlc gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad \
@@ -94,20 +96,26 @@ aptitude install -y miredo subversion apt-listchanges unrar rar cfv \
 	gstreamer0.10-plugins-bad-multiverse virtualbox-4.0 sun-java6-plugin \
 	sun-java6-jdk electricsheep libnotify-bin ncurses-term ttf-inconsolata \
 	ttf-droid pandoc ubuntu-restricted-extras deluge-torrent pidgin k3b rhythmbox
-add-apt-repository ppa:chromium-daily/dev
-add-apt-repository ppa:jonls/redshift-ppa
+
+#TODO: Some other time, too big.
+#apt-get install -y texlive-latex-recommended texlive-xetex texlive-latex-extra
 
 #TODO: Check for newer versions, since the ones in the Natty repos are just as new.
 #http://dev.deluge-torrent.org/wiki/ChangeLog
 #add-apt-repository ppa:deluge-team/ppa
+#http://developer.pidgin.im/wiki/ChangeLog
 #add-apt-repository ppa:pidgin-developers/ppa
 
-add-apt-repository ppa:pmcenery/ppa
-aptitude update
-aptitude -y upgrade #for libimobiledevice1 and friends
-aptitude -y install chromium-browser chromium-browser-inspector redshift
+#TODO: Check to see if Natty pkgs show up here.
+#add-apt-repository ppa:jonls/redshift-ppa
 
-#aptitude -y install libreadline-dev scons
+add-apt-repository ppa:chromium-daily/dev
+add-apt-repository ppa:pmcenery/ppa
+apt-get update
+apt-get -y upgrade #for libimobiledevice1 and friends
+apt-get -y install chromium-browser chromium-browser-inspector redshift
+
+#apt-get -y install libreadline-dev scons
 #ln -s /usr/lib32/libstdc++.so.6 /usr/lib32/libstdc++.so
 #cd /home/matt/src
 #svn co http://v8.googlecode.com/svn/trunk v8
@@ -151,8 +159,8 @@ cd /home/matt/.local/share
 rm -rf rhythmbox
 ln -s /home/matt/Dropbox/rhythmbox/ rhythmbox
 
-ln -s ~/Drobox/ssh_config ~/.ssh/config
-chmod 600 ~/.ssh/config
+ln -s /home/matt/Dropbox/ssh_config /home/matt/.ssh/config
+chmod 600 /home/matt/.ssh/config
 #Edit /etc/ssh/ssh_config, set HashKnownHosts No so that IP addy autocompletion works for ssh
 #`ssh-copy-id` blah for all of your servers
 
@@ -161,7 +169,7 @@ chmod 600 ~/.ssh/config
 #Install Virtualbox Extension Pack, guest OSs & Guest Additions.
 #Install code.google.com/p/feedindicator
 mkdir -p /home/matt/.config/feedindicator
-ln -s ~/Dropbox/feedindicator/feeds.cfg ~/.config/feedindicator/
+ln -s /home/matt/Dropbox/feedindicator/feeds.cfg /home/matt/.config/feedindicator/
 
 mkdir /home/matt/Deluge_Incoming
 #ln -s ~/Dropbox/deluge/[blah] ~/.config/deluge/

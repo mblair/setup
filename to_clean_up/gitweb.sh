@@ -34,7 +34,7 @@ cp -Rf gitweb /srv/
 
 cat > /etc/apache/git.conf << "EOF"
 	NameVirtualHost *:80
-	
+
 	UseCanonicalName off
 	<VirtualHost *:80>
 		ServerName git.tayoblair.com
