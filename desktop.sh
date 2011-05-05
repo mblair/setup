@@ -94,7 +94,7 @@ aptitude install -y miredo subversion apt-listchanges unrar rar cfv \
 	gstreamer0.10-plugins-bad-multiverse virtualbox-4.0 sun-java6-plugin \
 	sun-java6-jdk electricsheep libnotify-bin ncurses-term ttf-inconsolata \
 	ttf-droid pandoc texlive-latex-recommended texlive-xetex texlive-latex-extra \
-	ubuntu-restricted-extras deluge-torrent pidgin k3b
+	ubuntu-restricted-extras deluge-torrent pidgin k3b rhythmbox
 add-apt-repository ppa:chromium-daily/dev
 add-apt-repository ppa:jonls/redshift-ppa
 
@@ -144,13 +144,13 @@ ln -s /home/matt/Dropbox/konversationrc /home/matt/.kde/share/config/
 #Set chromium-browser up to sync, change download location to Desktop, enable global menu support in about:flags
 #Create a chromium-browser bash alias to add --password-store=basic
 
-#cd /home/matt/src
-#svn co http://rbeq.googlecode.com/svn/trunk/ rbeq
-#cd rbeq
-#cp -R rhythmbox /home/matt/.gnome2
-#cd /home/matt/.local/share
-#rm -rf rhythmbox
-#ln -s /home/matt/Dropbox/rhythmbox/ rhythmbox
+cd /home/matt/src
+svn co http://rbeq.googlecode.com/svn/trunk/ rbeq
+cd rbeq
+cp -R rhythmbox /home/matt/.gnome2
+cd /home/matt/.local/share
+rm -rf rhythmbox
+ln -s /home/matt/Dropbox/rhythmbox/ rhythmbox
 
 ln -s ~/Drobox/ssh_config ~/.ssh/config
 chmod 600 ~/.ssh/config
