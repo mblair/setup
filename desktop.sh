@@ -176,3 +176,8 @@ ln -s /home/matt/Dropbox/purple/prefs.xml /home/matt/.purple/
 #gconftool-2 --set /apps/metacity/general/button_layout --type string ":"
 su -l matt -c "gconftool --set /apps/compiz-1/general/screen0/options/hsize --type=int 3"
 su -l matt -c "gconftool --set /apps/compiz-1/general/screen0/options/vsize --type=int 2"
+
+#Remove empathy-common, evolution-common, transmission-common, possibly Banshee also.
+su -l matt -c "gconftool-2 -t string -s /desktop/gnome/url-handlers/magnet/command 'deluge "%s"'"
+su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/needs_terminal false"
+su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/enabled true"

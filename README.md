@@ -51,3 +51,4 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386. It 
 * One-step updates based on `versions.sh`
 * Make this a full-blown packaging system, since that hasn't been done before ;-)
 * `grep -r 'TODO' *` from the root of the tree for more.
+* Configure Deluge (ports, bandwidth)
