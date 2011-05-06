@@ -12,7 +12,7 @@ echo '.*.sw[a-z]' > /home/matt/.gitignore_global
 	#git rm --cached vim/bundle/repo <- not sure about this bad boy either
 #Every now and then:
 #git submodule foreach git pull origin master
-#Then `git add vim/bundle/blah` for the updated ones and commit the updates.
+#Then `git add vim/bundle/blah` for the updated ones (via `git status`) and commit the updates.
 
 cd vim
 mkdir autoload
