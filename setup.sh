@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #miminal, versions, functions, checkinstall, git, vim
 
-#TODO: Get this all working with Debian, Fedora, Arch & Gentoo.
+#TODO: Figure out restart functionality, like so:
+#http://forums.techguy.org/linux-unix/981948-restart-parameter.html
 
 # http://stackoverflow.com/questions/4336035/performance-profiling-tools-for-shell-scripts/4338046#4338046
 # Used to print timing information & current line number. Coupled with set -x, you get:
