@@ -34,6 +34,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386. It 
 * `time ./setup.sh --workstation 2>&1 | tee /home/matt/output; python emailer.py`
 * Set chromium-browser settings: sync, download location, fonts, enable global menu support in about:flags.
 * `ssh-copy-id shortname` for all of my servers.
+* Remove the first entries from `~/.ssh/known_hosts` since they were added before HashKnownHosts was turned off.
 * Build thumbnails.
 * Restart.
 * Install Virtualbox Extension Pack, guest OSs & Guest Additions.

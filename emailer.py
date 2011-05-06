@@ -1,6 +1,6 @@
 import smtplib
 
-fromaddr = 'me@matthewblair.net'
+fromaddr = 'scripts@matthewblair.net'
 toaddrs  = ['user@example.com']
 
 subject = "finished"
@@ -15,7 +15,7 @@ Subject: %s
 %s
 """ % (fromaddr, ", ".join(toaddrs), subject, text)
 
-username = 'me@matthewblair.net'
+username = 'scripts@matthewblair.net'
 password = 'changeme'
 
 server = smtplib.SMTP('smtp.gmail.com:587')
