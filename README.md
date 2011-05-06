@@ -41,6 +41,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386. It 
 
 ## TODO
 
+* Have emailer.py mention success/lack thereof.
 * Check out debra since checkinstall is slow.
 * Complete CentOS support.
 * Debian support.
