@@ -39,6 +39,9 @@ while [[ $# -gt 0 ]]; do
 		--workstation)
 			export variant="workstation"
 			;;
+		--python)
+			export python="yes"
+			;;
 		--help)
 			usage
 			exit 0

@@ -44,12 +44,12 @@ system_update() {
 			rpm -Uvh rpmforge-release-0.5.1-1.el5.rf.i386.rpm
 		fi
 		yum -yq upgrade
-		yum install -y bash-completion mlocate ntp htop make gcc gcc-c++ patch pigz git gettext rpm-build
+		yum install -y bash-completion mlocate ntp htop make gcc gcc-c++ patch pigz git gettext rpm-build bzip2-devel
 		/bin/cp /usr/share/zoneinfo/America/New_York /etc/localtime # because cp = cp -i on CentOS, and we can't have that.
 	else
 		apt-get update
 		apt-get -y dist-upgrade
-		apt-get install -y bash-completion locate ntp htop build-essential debian-archive-keyring pigz gettext dpkg-dev nload curl apt-file sloccount aptitude tree irssi
+		apt-get install -y bash-completion locate ntp htop build-essential debian-archive-keyring pigz gettext dpkg-dev nload curl apt-file sloccount aptitude tree irssi libbz2-dev
                 if grep 'lucid' /etc/lsb-release 1>/dev/null
                 then
                         apt-get -y install git-core

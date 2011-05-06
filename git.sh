@@ -2,8 +2,7 @@ if [ $OS = "CentOS" ]; then
 	yum install -y expat-devel gettext-devel curl-devel openssl-devel zlib-devel
 	yum -yq remove git
 else
-	#libcurl4-gnutls-dev installs zlib1g-dev, so don't worry about it for nginx/ruby/mysql/etc
-	aptitude install -y libexpat1-dev gettext libcurl4-gnutls-dev libssl-dev 
+	aptitude install -y libexpat1-dev gettext libcurl4-gnutls-dev libssl-dev zlib1g-dev
 
 	aptitude -y purge git-core git #`git-core` is now `git`. Uninstall both since I'm pretty sure git-core exists in Lucid.
 fi
