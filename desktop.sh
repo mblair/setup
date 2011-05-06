@@ -111,25 +111,30 @@ apt-get update
 apt-get -y upgrade #for libimobiledevice1 and friends
 apt-get -y install chromium-browser chromium-browser-inspector redshift
 
-#apt-get -y install libreadline-dev scons
-#ln -s /usr/lib32/libstdc++.so.6 /usr/lib32/libstdc++.so
-#cd /home/matt/src
-#svn co http://v8.googlecode.com/svn/trunk v8
-#cd v8
-#scons arch=x64 console=readline d8
-#cd /usr/local/bin
-#ln -s /home/matt/src/v8/d8 d8
+if [ $d8 == "yes" ]; then
+	apt-get -y install libreadline-dev scons
+	ln -s /usr/lib32/libstdc++.so.6 /usr/lib32/libstdc++.so
+	cd /home/matt/src
+	svn co http://v8.googlecode.com/svn/trunk v8
+	cd v8
+	scons arch=x64 console=readline d8
+	cd /usr/local/bin
+	ln -s /home/matt/src/v8/d8 d8
+fi
 
-#LLVM_SHORT_VER=29
-#cd /home/matt/src
-#svn co http://llvm.org/svn/llvm-project/llvm/tags/RELEASE_$LLVM_SHORT_VER/final llvm
-#cd llvm/tools
-#svn co http://llvm.org/svn/llvm-project/cfe/tags/RELEASE_$LLVM_SHORT_VER/final clang
-#cd ..
-#./configure --enable-optimized
-#make -j3
-#. /home/matt/.bash_profile #Or else the previous PATH modifications won't carry over.
-#echo "PATH=/home/matt/src/llvm/Release/bin:$PATH" >> /home/matt/.bash_profile
+if [ $clang == "yes" ]; then
+	cd /home/matt/src
+	wget http://llvm.org/releases/$LLVM_VER/llvm-$LLVM_VER.tgz
+	tar xzvf llvm-$LLVM_VER.tgz
+	cd llvm-$LLVM_VER/tools
+	wget http://llvm.org/releases/$LLVM_VER/clang-$LLVM_VER.tgz
+	tar xzvf clang-$LLVM_VER.tgz
+	cd ..
+	./configure --enable-optimized
+	make -j3
+	. /home/matt/.bash_profile #Or else the previous PATH modifications won't carry over.
+	echo "PATH=/home/matt/src/llvm-$LLVM_VER/Release/bin:$PATH" >> /home/matt/.bash_profile
+fi
 
 #http://www.freetechie.com/blog/disable-nepomuk-desktop-search-on-kde-4-4-2-kubuntu-lucid-10-04/
 mkdir -p /home/matt/.kde/share/apps/konversation/
@@ -159,6 +164,7 @@ chmod 600 /home/matt/.ssh/config
 sed -i 's/    HashKnownHosts yes/    HashKnownHosts no/' /etc/ssh/ssh_config
 
 mkdir /home/matt/Deluge_Incoming
+chown -R matt:matt /home/matt/Deluge_Incoming
 mkdir -p /home/matt/.config/deluge
 for f in /home/matt/Dropbox/deluge/*; do ln -s $f /home/matt/.config/deluge/`basename $f`; done
 

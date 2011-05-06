@@ -45,6 +45,12 @@ while [[ $# -gt 0 ]]; do
 		--ruby)
 			export ruby="yes"
 			;;
+		--d8)
+			export d8="yes"
+			;;
+		--clang)
+			export clang="yes"
+			;;
 		--help)
 			usage
 			exit 0
@@ -104,6 +110,5 @@ su -l matt -c "/opt/ruby.sh"
 
 chown -R matt:matt /home/matt/src
 chown -R matt:matt /home/matt/dotfiles
-chown -R matt:matt /home/matt/Deluge_Incoming
 
 echo "Done!"
