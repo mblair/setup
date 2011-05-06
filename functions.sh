@@ -58,7 +58,7 @@ system_update() {
                 fi
 
 		apt-file update	
-		aptitude update
+		apt-get update
 
 		#TODO: Make this configurable.
 		echo "America/New_York" > /etc/timezone # /usr/share/zoneinfo

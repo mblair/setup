@@ -1,18 +1,17 @@
 if [ $OS = "CentOS" ]; then
 	yum -yq remove vim-common
 else
-	aptitude remove -y vim-runtime
+	apt-get remove -y vim-runtime
 fi
 
 if [ $OS = "CentOS" ]; then
 	yum -yq install ncurses-devel
 else
-	aptitude -y install libncurses5-dev exuberant-ctags
+	apt-get -y install libncurses5-dev exuberant-ctags
 fi
 
-#TODO: Make this work with Fedora 15 also.
 if [ $variant == "workstation" ]; then
-	aptitude install -y libgtk2.0-dev libxt-dev libgnomeui-dev
+	apt-get install -y libgtk2.0-dev libxt-dev libgnomeui-dev
 fi
 
 cd /home/matt/src

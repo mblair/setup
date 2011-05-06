@@ -91,7 +91,7 @@ apt-get install -y miredo subversion apt-listchanges unrar rar cfv \
 	gstreamer0.10-plugins-ugly-multiverse skype  \
 	gstreamer0.10-plugins-bad-multiverse virtualbox-4.0 sun-java6-plugin \
 	electricsheep libnotify-bin ncurses-term ttf-inconsolata \
-	ttf-droid pandoc ubuntu-restricted-extras deluge-torrent pidgin k3b rhythmbox
+	ttf-droid pandoc ubuntu-restricted-extras deluge-torrent pidgin k3b rhythmbox vlc
 
 #TODO: Some other time, too big.
 #apt-get install -y texlive-latex-recommended texlive-xetex texlive-latex-extra
@@ -139,8 +139,10 @@ fi
 #http://www.freetechie.com/blog/disable-nepomuk-desktop-search-on-kde-4-4-2-kubuntu-lucid-10-04/
 mkdir -p /home/matt/.kde/share/apps/konversation/
 ln -s /home/matt/Dropbox/konversationui.rc /home/matt/.kde/share/apps/konversation/
+chown -R matt:matt /home/matt/.kde/share/apps/konversation/
 mkdir -p /home/matt/.kde/share/config/
 ln -s /home/matt/Dropbox/konversationrc /home/matt/.kde/share/config/
+chown -R matt:matt /home/matt/.kde/share/config/
 
 cd /home/matt/src
 wget http://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
@@ -167,17 +169,20 @@ mkdir /home/matt/Deluge_Incoming
 chown -R matt:matt /home/matt/Deluge_Incoming
 mkdir -p /home/matt/.config/deluge
 for f in /home/matt/Dropbox/deluge/*; do ln -s $f /home/matt/.config/deluge/`basename $f`; done
+chown -R matt:matt /home/matt/.config/deluge/
 
 mkdir -p /home/matt/.purple/
 ln -s /home/matt/Dropbox/purple/accounts.xml /home/matt/.purple/
 ln -s /home/matt/Dropbox/purple/logs/ /home/matt/.purple/
 ln -s /home/matt/Dropbox/purple/prefs.xml /home/matt/.purple/
+chown -R matt:matt /home/matt/.purple/
 
 #gconftool-2 --set /apps/metacity/general/button_layout --type string ":"
 su -l matt -c "gconftool --set /apps/compiz-1/general/screen0/options/hsize --type=int 3"
 su -l matt -c "gconftool --set /apps/compiz-1/general/screen0/options/vsize --type=int 2"
 
-#Remove empathy-common, evolution-common, transmission-common, possibly Banshee also.
 su -l matt -c "gconftool-2 -t string -s /desktop/gnome/url-handlers/magnet/command 'deluge "%s"'"
 su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/needs_terminal false"
 su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/enabled true"
+
+apt-get -y remove empathy-common evolution-common transmission-common ubuntuone-client-gnome banshee

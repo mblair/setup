@@ -1,7 +1,7 @@
 import smtplib
 
 fromaddr = 'scripts@matthewblair.net'
-toaddrs  = ['user@example.com']
+toaddrs  = ['me@matthewblair.net']
 
 subject = "finished"
 
