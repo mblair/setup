@@ -39,9 +39,13 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386. It 
 * Restart.
 * Install Virtualbox Extension Pack, guest OSs & Guest Additions.
 
+Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 Duo T5450 1.66GHz w/ 32KB/2MB L1/L2, 2GB PC2-5300 RAM) connected via wireless at home.
+
 ## TODO
 
-* Have emailer.py mention success/lack thereof.
+* License.
+* Reformatting stats at SBU via Ethernet.
+* Have `emailer.py` mention success/lack thereof.
 * Check out debra since checkinstall is slow.
 * Complete CentOS support.
 * Debian support.
