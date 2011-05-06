@@ -42,6 +42,9 @@ while [[ $# -gt 0 ]]; do
 		--python)
 			export python="yes"
 			;;
+		--ruby)
+			export ruby="yes"
+			;;
 		--help)
 			usage
 			exit 0

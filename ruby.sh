@@ -12,10 +12,12 @@ echo 'update: --no-rdoc --no-ri' >> ~/.gemrc
 echo "--drb" >> ~/.rspec
 echo "--colour" >> ~/.rspec
 
-rvm install ree
-rvm install 1.9.2-head
-rvm use 1.9.2-head --default
+if [ $ruby == "yes" ]; then
+	rvm install ree
+	rvm install 1.9.2-head
+	rvm use 1.9.2-head --default
 
-#Because these rock.
-gem install bundler
-gem install showoff
+	#Because these rock.
+	gem install bundler
+	gem install showoff
+fi
