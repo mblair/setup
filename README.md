@@ -30,7 +30,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386. It 
 * `git clone git@github.com:mblair/dotfiles.git`
 * `sudo su`
 * `cd setup`
-* Change the password in [emailer.py](emailer.py).
+* Change the password in `emailer.py`
 * `time ./setup.sh --workstation 2>&1 | tee /home/matt/output; python emailer.py`
 * Set chromium-browser settings: sync, download location, fonts, enable global menu support in about:flags.
 * `ssh-copy-id shortname` for all of my servers.
@@ -49,7 +49,7 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 
 * Remove `aptitude` refs since I no longer hold.
 * Reformatting stats for the desktop, laptop at SBU via Ethernet.
-* Have [emailer.py](emailer.py) mention success/lack thereof, time taken.
+* Have `emailer.py` mention success/lack thereof, time taken.
 * Check out debra since checkinstall is slow.
 * Complete CentOS support.
 * Debian support.
@@ -57,10 +57,10 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 * Gentoo support.
 * Arch support.
 * Figure out how to profile this, possibly [like so](http://stackoverflow.com/questions/4336035/performance-profiling-tools-for-shell-scripts/4338046#4338046).
-* One-step updates based on [versions.sh](versions.sh)
+* One-step updates based on `versions.sh`
 * Make this a full-blown packaging system, since that hasn't been done before ;-)
 * `grep -r 'TODO' *` from the root of the tree for more.
 
 ## LICENSE
 
-New BSD. See [LICENSE](LICENSE).
+New BSD. See `LICENSE`.
