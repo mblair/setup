@@ -24,7 +24,7 @@ apt-get install -y sun-java6-jdk -y
 update-java-alternatives -s java-6-sun --jre
 
 #http://www.panticz.de/install-acrobat-reader
-echo "acroread acroread/default-viewer boolean true" | debconf-set-selection
+echo "acroread acroread/default-viewer boolean true" | debconf-set-selections
 
 #http://www.panticz.de/install_mx
 cat << EOD | debconf-set-selections
