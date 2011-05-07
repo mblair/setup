@@ -20,4 +20,7 @@ if [ $ruby == "yes" ]; then
 	#Because these rock.
 	gem install bundler
 	gem install showoff
+	gem install rails
+	gem install rocco
+	gem install capistrano
 fi
