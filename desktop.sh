@@ -181,8 +181,10 @@ chown -R matt:matt /home/matt/.purple/
 su -l matt -c "gconftool --set /apps/compiz-1/general/screen0/options/hsize --type=int 3"
 su -l matt -c "gconftool --set /apps/compiz-1/general/screen0/options/vsize --type=int 2"
 
+apt-get -y remove empathy-common evolution-common transmission-common ubuntuone-client-gnome banshee
+
 su -l matt -c "gconftool-2 -t string -s /desktop/gnome/url-handlers/magnet/command 'deluge "%s"'"
 su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/needs_terminal false"
 su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/enabled true"
-
-apt-get -y remove empathy-common evolution-common transmission-common ubuntuone-client-gnome banshee
+su -l matt -c "xdg-mime default deluge.desktop x-scheme-handler/magnet"
+sed -i 's/Exec=deluge-gtk/Exec=deluge-gtk %U/' /usr/share/applications/deluge.desktop
