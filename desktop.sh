@@ -146,10 +146,14 @@ chown -R matt:matt /home/matt/.kde/share/config/
 
 cd /home/matt/src
 wget http://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
-ar vx google-chrome-unstable_current_amd64.deb
-unlzma data.tar.lzma
-tar xvf data.tar
-cp opt/google/chrome/libpdf.so /usr/lib/chromium-browser
+dpkg -i --force-depends google-chrome-unstable_current_amd64.deb
+apt-get -yf install
+cp /opt/google/chrome/libpdf.so /usr/lib/chromium-browser
+
+#ar vx google-chrome-unstable_current_amd64.deb
+#unlzma data.tar.lzma
+#tar xvf data.tar
+#cp opt/google/chrome/libpdf.so /usr/lib/chromium-browser
 
 sed -i 's/Exec=\/usr\/bin\/chromium-browser %U/Exec=\/usr\/bin\/chromium-browser --password-store=basic %U/' /usr/share/applications/chromium-browser.desktop
 
@@ -181,7 +185,7 @@ chown -R matt:matt /home/matt/.purple/
 su -l matt -c "gconftool --set /apps/compiz-1/general/screen0/options/hsize --type=int 3"
 su -l matt -c "gconftool --set /apps/compiz-1/general/screen0/options/vsize --type=int 2"
 
-apt-get -y remove empathy-common evolution-common transmission-common ubuntuone-client-gnome banshee
+apt-get -y remove empathy-common evolution-common transmission-common ubuntuone-client-gnome banshee gwibber
 
 su -l matt -c "gconftool-2 -t string -s /desktop/gnome/url-handlers/magnet/command 'deluge "%s"'"
 su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/needs_terminal false"
