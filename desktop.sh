@@ -8,6 +8,14 @@ ln -s /home/matt/src/youtube-dl /usr/local/bin/
 #http://mmcgrana.github.com/2010/07/install-java-ubuntu.html
 echo "deb http://archive.canonical.com/ubuntu natty partner" >> /etc/apt/sources.list
 echo "deb-src http://archive.canonical.com/ubuntu natty partner" >> /etc/apt/sources.list
+
+wget --output-document=/etc/apt/sources.list.d/medibuntu.list http://www.medibuntu.org/sources.list.d/natty.list
+apt-get update
+apt-get -y --allow-unauthenticated install medibuntu-keyring
+apt-get update
+
+apt-get -y install libdvdcss2
+
 cat << EOD | debconf-set-selections
 sun-java5-jdk shared/accepted-sun-dlj-v1-1 select true
 sun-java5-jre shared/accepted-sun-dlj-v1-1 select true
@@ -20,7 +28,7 @@ sun-java6-jdk install
 EOS
 
 apt-get update
-apt-get install -y sun-java6-jdk -y
+apt-get install -y sun-java6-jdk
 update-java-alternatives -s java-6-sun --jre
 
 #http://www.panticz.de/install-acrobat-reader
@@ -85,7 +93,7 @@ echo "deb http://download.virtualbox.org/virtualbox/debian natty contrib" >> /et
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | apt-key add -
 
 apt-get update
-apt-get install -y miredo subversion apt-listchanges unrar rar cfv \
+apt-get install -y miredo subversion unrar rar cfv \
 	openssh-server mp3splt gtkpod chmsee konversation extace \
 	acroread cheese fbreader gimp gimp-data-extras \
 	gstreamer0.10-plugins-ugly-multiverse skype  \

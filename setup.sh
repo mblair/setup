@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-#miminal, versions, functions, checkinstall, git, vim
 
 #TODO: Figure out restart functionality, like so:
 #http://forums.techguy.org/linux-unix/981948-restart-parameter.html
@@ -20,7 +19,12 @@ WD=`pwd`
 #This is for servers with small /tmp mounts. gcc uses this value.
 TMPDIR=/home/matt/src
 
-#TODO: Put these in /opt so the user `matt` can access them.
+set -o nounset #Quit on unset variables.
+set -o errexit # Quit on error.
+set -o xtrace # Print the statement before you execute it.
+
+trap "python emailer.py failed \${LINENO};" ERR
+
 . versions.sh
 . functions.sh
 
@@ -40,6 +44,8 @@ while [[ $# -gt 0 ]]; do
 		--workstation)
 			export variant="workstation"
 			;;
+
+		#TODO: Figure out why installing Python from source is breaking Rhythmbox.
 		--python)
 			export python="yes"
 			;;
@@ -74,9 +80,6 @@ if [ $variant == "server" ]; then
 	echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 	useradd -s /bin/bash -G wheel -m -p `python -c 'import crypt; print crypt.crypt("changeme", "$6$salt$6$");'` matt
 fi
-
-set -e # Quit on error.
-set -x # Print the statement before you execute it.
 
 system_update
 
@@ -113,3 +116,4 @@ chown -R matt:matt /home/matt/src
 chown -R matt:matt /home/matt/dotfiles
 
 echo "Done!"
+python emailer.py succeeded

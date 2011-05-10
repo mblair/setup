@@ -19,7 +19,7 @@ hg clone https://vim.googlecode.com/hg/ vim
 cd vim
 
 if [ $python = "yes" ]; then
-	PATH="/home/matt/src/python$PYTHON_VER/bin:$PATH" #Hack to make Vim use a juicy Python, only if I installed it. TODO: Figure out why installing Python from source is breaking Rhythmbox.
+	PATH="/home/matt/src/python$PYTHON_VER/bin:$PATH" #Hack to make Vim use a juicy Python, only if I installed it.
 fi
 
 configure='./configure --enable-pythoninterp --enable-multibyte --with-features=huge --enable-cscope'

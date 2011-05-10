@@ -1,11 +1,15 @@
+import sys
 import smtplib
 
 fromaddr = 'scripts@matthewblair.net'
 toaddrs  = ['me@matthewblair.net']
 
-subject = "finished"
+subject = "setup " + sys.argv[1]
 
-text = "Your script is done."
+if sys.argv[1] == "failed":
+    text = "Your script failed on line " + sys.argv[2]
+else:
+    text = "Setup succeeded."
 
 message = """\
 From: %s

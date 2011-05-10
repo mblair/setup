@@ -11,7 +11,9 @@ These are the scripts I use to set up Linux servers at [work](http://www.grossma
 * `curl -Lsf https://github.com/mblair/setup/tarball/master | tar xz`
 * `cd mblair-setup-[TAB][CR]`
 * Change the password and recipient email address in emailer.py.
-* `time ./setup.sh --server 2>&1 | tee ~/output; python emailer.py`
+* `time ./setup.sh --server 2>&1 | tee ~/output`
+
+You'll get an email when the script finishes, error or not.
 
 This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386. It takes about 35-40 minutes on a Linode 512; [checkinstall](http://www.asic-linux.com.mx/~izto/checkinstall/) takes up too much of that time for my tastes. I may switch to rcrowley's [debra](http://rcrowley.github.com/debra/) if it's faster and just as good in a non-interactive environment.
 
@@ -31,7 +33,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386. It 
 * `sudo su`
 * `cd setup`
 * Change the password in `emailer.py`
-* `time ./setup.sh --workstation 2>&1 | tee /home/matt/output; python emailer.py`
+* `time ./setup.sh --workstation 2>&1 | tee /home/matt/output`
 * Set chromium-browser settings: sync, download location, fonts, enable global menu support in about:flags.
 * `ssh-copy-id shortname` for all of my servers.
 * Remove the first entries from `~/.ssh/known_hosts` since they were added before HashKnownHosts was turned off.
@@ -47,9 +49,11 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 
 ## TODO
 
+* http://stackoverflow.com/questions/192319/in-the-bash-script-how-do-i-know-the-script-file-name
+* Prompt for emailer.py settings using `read -s shellvar`
+* Have `emailer.py` mention time taken.
 * Remove `aptitude` refs since I no longer hold.
 * Reformatting stats for the desktop, laptop at SBU via Ethernet.
-* Have `emailer.py` mention success/lack thereof, time taken.
 * Check out debra since checkinstall is slow.
 * Complete CentOS support.
 * Debian support.
