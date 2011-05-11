@@ -19,5 +19,6 @@ PERCONA_MYSQL_55_SHORT_VER=5.5
 PERCONA_55_VER=20.2
 POSTGRES_VER=9.0.4
 LLVM_VER=2.9
+NGINX_VER=1.0.2 #http://nginx.org/en/download.html
 
 IRC_PASS=changeme

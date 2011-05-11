@@ -94,7 +94,7 @@ wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | a
 
 apt-get update
 apt-get install -y miredo subversion unrar rar cfv \
-	openssh-server mp3splt gtkpod chmsee konversation extace \
+	openssh-server mp3splt gtkpod xchm konversation extace \
 	acroread cheese fbreader gimp gimp-data-extras \
 	gstreamer0.10-plugins-ugly-multiverse skype  \
 	gstreamer0.10-plugins-bad-multiverse virtualbox-4.0 sun-java6-plugin \
@@ -162,8 +162,6 @@ cp /opt/google/chrome/libpdf.so /usr/lib/chromium-browser
 #unlzma data.tar.lzma
 #tar xvf data.tar
 #cp opt/google/chrome/libpdf.so /usr/lib/chromium-browser
-
-sed -i 's/Exec=\/usr\/bin\/chromium-browser %U/Exec=\/usr\/bin\/chromium-browser --password-store=basic %U/' /usr/share/applications/chromium-browser.desktop
 
 cd /home/matt/src
 svn co http://rbeq.googlecode.com/svn/trunk/ rbeq

@@ -49,7 +49,9 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 
 ## TODO
 
-* http://stackoverflow.com/questions/192319/in-the-bash-script-how-do-i-know-the-script-file-name
+* Fix these: `grep -Pinr "^[\t]*if[^=]*=[^=]" *`, making them all use double equals.
+* Refactor so you can run arbitrary setup scripts and use versions/functions/etc, not just the reformatting ones.
+* Use long options in scripts for readability, or comment heavily.
 * Prompt for emailer.py settings using `read -s shellvar`
 * Have `emailer.py` mention time taken.
 * Remove `aptitude` refs since I no longer hold.

@@ -1,48 +1,44 @@
 #!/usr/bin/env bash
 
-set -e
-set -x
+#TODO: Read this: http://wiki.nginx.org/Pitfalls
 
-NGINX_VER=1.0.0 #http://nginx.org/en/download.html 
-
-if [[ `cat /etc/*-release | awk '{print $1}' -` = "CentOS" ]]; then
-	OS="CentOS"
-elif [[ `cat /etc/*-release | head -n1 | awk -F= '{print $2}' -` = "Ubuntu" ]]
-then
-	OS="Ubuntu"
+#http://stackoverflow.com/questions/192319/in-the-bash-script-how-do-i-know-the-script-file-name/639500#639500
+if [ $0 == $BASH_SOURCE ]; then
+	echo "Do not run this file directly."
+	exit 1
 else
-	OS="neither" # Debian is on the roadmap.
+	: #This file is being sourced from somewhere, hopefully setup.sh.
 fi
 
-#TODO
-if [ $OS = "Ubuntu" ]; then
-	apt-get -y install libpcre3-dev
-else
-	yum install -y pcre-devel
-fi
-
-cd /opt
+cd /home/matt/src/
 wget "http://nginx.org/download/nginx-$NGINX_VER.tar.gz"
 tar xzvf "nginx-$NGINX_VER.tar.gz"
 cd "nginx-$NGINX_VER"
 ./configure --prefix=/opt/nginx --with-debug --user=nginx --group=nginx --with-http_ssl_module --with-sha1=auto/lib/sha1 --with-sha1-asm --with-http_flv_module --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --pid-path=/var/run/nginx.pid
-make -j4
-checkinstall make install #TODO: Figure out when/why this doesn't create /var/log/nginx
 
-if [ $OS = "Ubuntu" ]; then
+if [ $variant == "server" ]; then
+	make -j5
+else
+	make -j3 #TODO: Get a 4-core workstation :-)
+fi
+
+checkinstall make install #TODO: Figure out when/why this doesn't create /var/log/nginx (<- ?)
+
+#TODO: Use the useradd lines from setup.sh here, take a look at the Linode Library ones too.
+if [ $OS == "Ubuntu" ]; then
 	adduser --system --no-create-home --disabled-login --disabled-password --group nginx
 else
 	groupadd -r nginx
 	adduser -M -r -g nginx nginx
 fi
 
-if [ $OS = "Ubuntu" ]; then
-	wget http://library.linode.com/web-servers/nginx/installation/reference/init-deb.sh
-	mv init-deb.sh /etc/init.d/nginx
+if [ $OS == "Ubuntu" ]; then
+	wget http://library.linode.com/assets/661-init-deb.sh
+	mv 661-init-deb.sh /etc/init.d/nginx
 	sed -i 's/\/opt\/nginx\/logs\/$NAME.pid/\/var\/run\/nginx.pid/' /etc/init.d/nginx
 else
-	wget http://library.linode.com/web-servers/nginx/installation/reference/init-rpm.sh
-	mv init-rpm.sh /etc/init.d/nginx
+	wget http://library.linode.com/assets/662-init-rpm.sh
+	mv 662-init-rpm.sh /etc/init.d/nginx
 fi
 chmod +x /etc/init.d/nginx
 
