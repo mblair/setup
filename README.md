@@ -49,12 +49,13 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 
 ## TODO
 
-* Fix these: `grep -Pinr "^[\t]*if[^=]*=[^=]" *`, making them all use double equals.
+* Review everything and remove cruft.
 * Refactor so you can run arbitrary setup scripts and use versions/functions/etc, not just the reformatting ones.
+* Fix these: `grep -Pinr "^[\t]*if[^=]*=[^=]" *`, making them all use double equals.
 * Use long options in scripts for readability, or comment heavily.
 * Prompt for emailer.py settings using `read -s shellvar`
 * Have `emailer.py` mention time taken.
-* Remove `aptitude` refs since I no longer hold.
+* Remove `aptitude` refs since I no longer hold packages.
 * Reformatting stats for the desktop, laptop at SBU via Ethernet.
 * Check out debra since checkinstall is slow.
 * Complete CentOS support.
