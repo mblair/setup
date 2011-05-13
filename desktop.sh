@@ -157,6 +157,7 @@ wget http://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
 dpkg -i --force-depends google-chrome-unstable_current_amd64.deb
 apt-get -yf install
 cp /opt/google/chrome/libpdf.so /usr/lib/chromium-browser
+ln -s /home/matt/setup/Custom.css /home/matt/.config/chromium/Default/User\ StyleSheets/
 
 #ar vx google-chrome-unstable_current_amd64.deb
 #unlzma data.tar.lzma
