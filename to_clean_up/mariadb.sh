@@ -5,7 +5,7 @@ set -x
 shopt -s expand_aliases
 
 TMPDIR=/home/matt/src
-MARIADB_VER=5.2.4
+MARIADB_VER=5.2.6
 MARIADB_PASSWORD=changeme
 
 if [ `uname -m` = "x86_64" ] #One can get i386 or i686, so I test the other.
