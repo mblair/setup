@@ -49,8 +49,9 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 
 ## TODO
 
-* Review everything and remove cruft.
 * Refactor so you can run arbitrary setup scripts and use versions/functions/etc, not just the reformatting ones.
+* Bash completion, man pages.
+* Review everything and remove cruft.
 * Fix these: `grep -Pinr "^[\t]*if[^=]*=[^=]" *`, making them all use double equals.
 * Use long options in scripts for readability, or comment heavily.
 * Prompt for emailer.py settings using `read -s shellvar`
