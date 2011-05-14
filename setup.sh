@@ -3,12 +3,16 @@
 #TODO: Figure out restart functionality, like so:
 #http://forums.techguy.org/linux-unix/981948-restart-parameter.html
 
+set -o nounset #Quit on unset variables.
+set -o errexit # Quit on error.
+set -o xtrace # Print the statement before you execute it.
+
 # http://stackoverflow.com/questions/4336035/performance-profiling-tools-for-shell-scripts/4338046#4338046
 # Used to print timing information & current line number. Coupled with set -x, you get:
 # 1291311776.120680354 (5) + echo 0
 # where 5 is the line number and `echo 0` is the statement on that line. 
 #TODO: Figure out why this line is problematic.
-#PS4='$(date "+%s.%N ($LINENO) + ")'
+PS4='$(date "+%s.%N ($LINENO) + ")'
 
 shopt -s expand_aliases # so `python setup.py install` within this script uses the new python. saves me from having to specify the full path to the binary every time.
 
@@ -18,10 +22,6 @@ WD=`pwd`
 
 #This is for servers with small /tmp mounts. gcc uses this value.
 TMPDIR=/home/matt/src
-
-set -o nounset #Quit on unset variables.
-set -o errexit # Quit on error.
-set -o xtrace # Print the statement before you execute it.
 
 trap "python emailer.py failed \${LINENO};" ERR
 
