@@ -50,14 +50,8 @@ system_update() {
 		apt-get update
 		apt-get -y dist-upgrade
 		apt-get install -y bash-completion locate ntp htop build-essential debian-archive-keyring pigz gettext dpkg-dev nload curl apt-file sloccount aptitude tree irssi libbz2-dev
-                if grep 'lucid' /etc/lsb-release 1>/dev/null; then
-                        apt-get -y install git-core
-                else
-                        apt-get -y install git
-                fi
-
+		apt-get update #because of debian-archive-keyring
 		apt-file update	
-		apt-get update
 
 		#TODO: Make this configurable.
 		echo "America/New_York" > /etc/timezone # /usr/share/zoneinfo
