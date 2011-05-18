@@ -10,11 +10,27 @@ else
 	: #This file is being sourced from somewhere, hopefully setup.sh.
 fi
 
+MP4_STREAMING=0
+
+if [ $MP4_STREAMING -eq 1 ]; then
+	cd /home/matt/src/
+	wget http://h264.code-shop.com/download/nginx_mod_h264_streaming-2.2.7.tar.gz
+	tar xzvf nginx_mod_h264_streaming-2.2.7.tar.gz
+
+	#http://h264.code-shop.com/trac/discussion/1/133?discussion_action=quote;
+	sed -i '157,162d' nginx_mod_h264_streaming-2.2.7/src/ngx_http_streaming_module.c
+fi
+
 cd /home/matt/src/
 wget "http://nginx.org/download/nginx-$NGINX_VER.tar.gz"
 tar xzvf "nginx-$NGINX_VER.tar.gz"
 cd "nginx-$NGINX_VER"
-./configure --prefix=/opt/nginx --with-debug --user=nginx --group=nginx --with-http_ssl_module --with-sha1=auto/lib/sha1 --with-sha1-asm --with-http_flv_module --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --pid-path=/var/run/nginx.pid
+
+if [ $MP4_STREAMING -eq 1]; then
+	./configure --prefix=/opt/nginx --with-debug --user=nginx --group=nginx --with-http_ssl_module --with-sha1=auto/lib/sha1 --with-sha1-asm --with-http_flv_module --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --pid-path=/var/run/nginx.pid --add-module=/home/matt/src/nginx_mod_h264_streaming-2.2.7
+else
+	./configure --prefix=/opt/nginx --with-debug --user=nginx --group=nginx --with-http_ssl_module --with-sha1=auto/lib/sha1 --with-sha1-asm --with-http_flv_module --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --pid-path=/var/run/nginx.pid
+fi
 
 if [ $variant == "server" ]; then
 	make -j5
