@@ -1,7 +1,7 @@
 set -e
 set -x
 
-APACHE_VER=2.2.17
+APACHE_VER=2.2.18
 
 cd /home/matt/src
 wget http://mirror.cloudera.com/apache/httpd/httpd-$APACHE_VER.tar.bz2
