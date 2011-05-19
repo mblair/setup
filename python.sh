@@ -61,4 +61,5 @@ else
 	pip install mercurial
 fi
 
-#Pygments, fabric, virtualenv, docutils.
+pip install sphinx #installs pygments and docutils
+#fabric, virtualenv

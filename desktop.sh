@@ -100,10 +100,8 @@ apt-get install -y miredo subversion unrar rar cfv \
 	gstreamer0.10-plugins-bad-multiverse virtualbox-4.0 sun-java6-plugin \
 	electricsheep libnotify-bin ncurses-term ttf-inconsolata \
 	ttf-droid pandoc ubuntu-restricted-extras deluge-torrent pidgin \
-	k3b rhythmbox vlc mp3fs testdisk gddrescue
-
-#TODO: Some other time, too big.
-#apt-get install -y texlive-latex-recommended texlive-xetex texlive-latex-extra
+	k3b rhythmbox vlc mp3fs testdisk gddrescue \
+	texlive-latex-recommended texlive-xetex texlive-latex-extra texlive-fonts-recommended
 
 #TODO: Check for newer versions, since the ones in the Natty repos are just as new.
 #http://dev.deluge-torrent.org/wiki/ChangeLog

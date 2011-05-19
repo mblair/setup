@@ -49,7 +49,7 @@ system_update() {
 	else
 		apt-get update
 		apt-get -y dist-upgrade
-		apt-get install -y bash-completion locate ntp htop build-essential debian-archive-keyring pigz gettext dpkg-dev nload curl apt-file sloccount aptitude tree irssi libbz2-dev
+		apt-get install -y bash-completion locate ntp htop build-essential debian-archive-keyring pigz gettext dpkg-dev nload curl apt-file sloccount aptitude tree irssi libbz2-dev fossil
 		apt-get update #because of debian-archive-keyring
 		apt-file update	
 
