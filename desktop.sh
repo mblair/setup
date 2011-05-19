@@ -151,7 +151,7 @@ ln -s /home/matt/Dropbox/konversationui.rc /home/matt/.kde/share/apps/konversati
 chown -R matt:matt /home/matt/.kde/share/apps/konversation/
 mkdir -p /home/matt/.kde/share/config/
 ln -s /home/matt/Dropbox/konversationrc /home/matt/.kde/share/config/
-chown -R matt:matt /home/matt/.kde/share/config/
+chown -R matt:matt /home/matt/.kde/
 
 cd /home/matt/src
 wget http://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
