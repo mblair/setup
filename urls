@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+wget http://download.savannah.gnu.org/releases/lzip/lzip-1.12.tar.gz
+wget http://download.savannah.gnu.org/releases/ddrescue/ddrescue-1.14.tar.lz
