@@ -101,7 +101,7 @@ apt-get install -y miredo subversion unrar rar cfv \
 	electricsheep libnotify-bin ncurses-term ttf-inconsolata \
 	ttf-droid pandoc ubuntu-restricted-extras deluge-torrent pidgin \
 	k3b rhythmbox vlc mp3fs testdisk gddrescue \
-	texlive-latex-recommended texlive-xetex texlive-latex-extra texlive-fonts-recommended
+	texlive-latex-recommended texlive-xetex texlive-latex-extra texlive-fonts-recommended redshift
 
 #TODO: Check for newer versions, since the ones in the Natty repos are just as new.
 #http://dev.deluge-torrent.org/wiki/ChangeLog
@@ -114,9 +114,10 @@ apt-get install -y miredo subversion unrar rar cfv \
 
 add-apt-repository ppa:chromium-daily/dev
 add-apt-repository ppa:pmcenery/ppa
+add-apt-repository ppa:janvitus/ppa
 apt-get update
 apt-get -y upgrade #for libimobiledevice1 and friends
-apt-get -y install chromium-browser chromium-browser-inspector redshift
+apt-get -y install chromium-browser chromium-browser-inspector amule
 
 if [ $d8 == "yes" ]; then
 	apt-get -y install libreadline-dev scons

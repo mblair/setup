@@ -44,6 +44,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386. It 
 * Edit Launcher entries.
 * Configure Deluge (download location, ports, bandwidth)
 * Hit 'Install Drivers' to get the restricted drivers tray icon to go away on your laptop (boo Broadcom).
+* Install [this](https://addons.mozilla.org/en-US/firefox/addon/video-downloadhelper/)
 
 Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 Duo T5450 1.66GHz w/ 32KB/2MB L1/L2, 2GB PC2-5300 RAM) connected via wireless at home.
 
