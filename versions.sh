@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 EPEL_RELEASE=5-4
-GIT_VER=1.7.5.1
+GIT_VER=1.7.5.2
 SQLITE_VER=3070603
 PYTHON_VER=2.7.1
 PYTHON_SHORT_VER="`echo $PYTHON_VER | cut -f1 -d"."`.`echo $PYTHON_VER | cut -f2 -d"."`"
