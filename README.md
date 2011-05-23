@@ -50,8 +50,10 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 
 ## TODO
 
-* Ensure every variable has a default value, uncomment nounset.
+#### Soon:
+* System-wide Ruby for servers, personal Ruby for workstations.
 * Refactor so you can run arbitrary setup scripts and use versions/functions/etc, not just the reformatting ones.
+* Ensure every variable has a default value, uncomment nounset.
 * Put GnuPG instructions in here.
 * Make sure you mention that this needs to be run as root, and that it updates your system.
 * Nicer error handling (see test.sh)
@@ -78,6 +80,7 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 * Check out [Aruba](https://github.com/cucumber/aruba/blob/master/features/interactive.feature) for testing.
 * Create a Debian archive once you hit 1.0, like [Debra](http://rcrowley.github.com/debra/), using [these](http://scotbofh.wordpress.com/2011/04/26/creating-your-own-signed-apt-repository-and-debian-packages/) [two](http://www.debian-administration.org/article/286/Setting_up_your_own_APT_repository_with_upload_support) resources.
 
+#### Later:
 * Sexy website. So necessary.
 * Set up Jenkins to test changes before you push to GitHub, as well as pull requests before merging them.
 * Easy way to upgrade/uninstall setup itself (like RVM's `get head` and `implode`)
