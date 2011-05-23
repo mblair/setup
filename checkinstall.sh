@@ -1,9 +1,3 @@
-if grep 'lucid' /etc/lsb-release 1>/dev/null; then
-		apt-get -y install git-core
-else
-		apt-get -y install git
-fi
-
 #TODO: Find some man pages for this.
 cd /home/matt/src
 git clone http://checkinstall.izto.org/checkinstall.git
