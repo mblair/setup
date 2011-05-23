@@ -3,7 +3,7 @@
 #TODO: Figure out restart functionality, like so:
 #http://forums.techguy.org/linux-unix/981948-restart-parameter.html
 
-set -o nounset #Quit on unset variables.
+#set -o nounset #Quit on unset variables.
 set -o errexit # Quit on error.
 set -o xtrace # Print the statement before you execute it.
 
@@ -23,7 +23,7 @@ WD=`pwd`
 #This is for servers with small /tmp mounts. gcc uses this value.
 TMPDIR=/home/matt/src
 
-trap "python emailer.py failed \${LINENO};" ERR
+trap "python $WD/emailer.py failed \${LINENO};" ERR
 
 . versions.sh
 . functions.sh
@@ -49,8 +49,8 @@ while [[ $# -gt 0 ]]; do
 		--python)
 			export python="yes"
 			;;
-		--ruby)
-			export ruby="yes"
+		--ruby18)
+			export ruby18="yes"
 			;;
 		--d8)
 			export d8="yes"
@@ -85,6 +85,12 @@ system_update
 
 mkdir -p /home/matt/src
 
+. $WD/ruby-deps.sh
+
+cp $WD/ruby.sh /opt
+chmod 755 /opt/ruby.sh
+su -l matt -c "/opt/ruby.sh"
+
 . $WD/checkinstall.sh
 . $WD/git.sh
 . $WD/sqlite.sh
@@ -106,14 +112,8 @@ fi
 
 . $WD/dotfiles.sh
 
-. $WD/ruby-deps.sh
-
-cp $WD/ruby.sh /opt
-chmod 755 /opt/ruby.sh
-su -l matt -c "/opt/ruby.sh"
-
 chown -R matt:matt /home/matt/src
 chown -R matt:matt /home/matt/dotfiles
 
 echo "Done!"
-python emailer.py succeeded
+python $WD/emailer.py succeeded
