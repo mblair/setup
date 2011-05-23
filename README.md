@@ -50,8 +50,9 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 
 ## TODO
 
-* Comment out nounset or ensure every variable has a default value.
+* Ensure every variable has a default value, uncomment nounset.
 * Refactor so you can run arbitrary setup scripts and use versions/functions/etc, not just the reformatting ones.
+* Put GnuPG instructions in here.
 * Make sure you mention that this needs to be run as root, and that it updates your system.
 * Nicer error handling (see test.sh)
 * Nice installation messages like [railsready](https://github.com/joshfng/railsready/blob/master/railsready.sh) and [RVM](https://github.com/wayneeseguin/rvm/blob/master/scripts/functions/installer).
