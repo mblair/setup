@@ -49,9 +49,6 @@ while [[ $# -gt 0 ]]; do
 		--python)
 			export python="yes"
 			;;
-		--ruby18)
-			export ruby18="yes"
-			;;
 		--d8)
 			export d8="yes"
 			;;
