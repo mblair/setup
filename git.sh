@@ -11,8 +11,11 @@ cd /home/matt/src
 wget http://kernel.org/pub/software/scm/git/git-$GIT_VER.tar.bz2
 tar xjvf git-$GIT_VER.tar.bz2
 cd git-$GIT_VER
-make prefix=/usr/local -j4 all
-checkinstall --pkgname="matt-git" --pkgversion="$GIT_VER" --fstrans=no make prefix=/usr/local install
+mkdir /tmp/installdir
+make -j5 all DESTDIR=/tmp/installdir prefix=/usr/local
+make install DESTDIR=/tmp/installdir prefix=/usr/local
+fpm -s dir -t deb -n git -v "1:$GIT_VER" -C /tmp/installdir
+dpkg -i git_1\:"$GIT_VER"_amd64.deb
 cp /home/matt/src/git-$GIT_VER/contrib/completion/git-completion.bash /home/matt/.git-completion.bash
 
 cd /home/matt/src

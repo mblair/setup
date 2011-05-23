@@ -1,10 +1,10 @@
 set -e
 set -x
 
-APACHE_VER=2.2.18
+APACHE_VER=2.2.19
 
 cd /home/matt/src
-wget http://mirror.cloudera.com/apache/httpd/httpd-$APACHE_VER.tar.bz2
+wget http://www.apache.org/dist/httpd/httpd-$APACHE_VER.tar.bz2
 tar xjvf httpd-$APACHE_VER.tar.bz2
 cd httpd-$APACHE_VER
 #TODO: Figure out if --enable-mods-shared=all is necessary for mod_rewrite.

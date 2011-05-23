@@ -1,6 +1,6 @@
 # Setup Scripts
 
-These are the scripts I use to set up Linux servers at [work](http://www.grossmaninteractive.com) and my workstations at home. We use CentOS for servers at work, and I've been using Ubuntu for the last two and a half years at home.
+These are the scripts I use to set up Linux servers at [work](http://www.grossmaninteractive.com) and my workstations at home. We use CentOS and Ubuntu for servers at work, and I've been using Ubuntu for the last two and a half years at home.
 
 ## USAGE
 
@@ -50,25 +50,46 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 
 ## TODO
 
-* Start using fpm instead of checkinstall.
+* Comment out nounset or ensure every variable has a default value.
 * Refactor so you can run arbitrary setup scripts and use versions/functions/etc, not just the reformatting ones.
-* Bash completion, man pages.
-* Review everything and remove cruft.
-* Fix these: `grep -Pinr "^[\t]*if[^=]*=[^=]" *`, making them all use double equals.
-* Use long options in scripts for readability, or comment heavily.
-* Prompt for emailer.py settings using `read -s shellvar`
+* Make sure you mention that this needs to be run as root, and that it updates your system.
+* Nicer error handling (see test.sh)
+* Nice installation messages like [railsready](https://github.com/joshfng/railsready/blob/master/railsready.sh) and [RVM](https://github.com/wayneeseguin/rvm/blob/master/scripts/functions/installer).
+* Start using fpm instead of checkinstall.
 * Have `emailer.py` mention time taken.
-* Remove `aptitude` refs since I no longer hold packages.
-* Reformatting stats for the desktop, laptop at SBU via Ethernet.
-* Complete CentOS support.
+* Fix these: `grep -Pinr "^[\t]*if[^=]*=[^=]" *`, making them all use double equals.
+* Figure out a Vim version string that doesn't cause apt to want to update it.
+* Nicer README like [RVM's](https://github.com/wayneeseguin/rvm/blob/master/README).
+* [Versions](http://semver.org/) with a VERSION file.
+* [Changelog](https://github.com/visionmedia/git-extras/blob/master/bin/git-changelog), or something like `git commit -v` that shows you a diff since the last tag and lets you write a changelog. I'm not sure commit messages make the most sense for a changelog.
+* A `HACKING` file that talks about internals.
+* An automatic installer, like oh-my-zsh and RVM.
+* Nicer directory structure (packages go in a separate folder)
+* Man pages using [ronn](http://rtomayko.github.com/ronn/)
+* Makefile like [this](https://github.com/visionmedia/git-extras/blob/master/Makefile) or a Rakefile like [this](https://github.com/cloudfoundry/vcap/blob/master/Rakefile).
+* Call Vim "vim" instead of "matt-vim"
+* Remove `aptitude` refs since I no longer need to hold Git and Vim.
+* Review everything and remove cruft (configurable username, etc.)
+* Add a [progress bar](http://stackoverflow.com/questions/238073/how-to-add-a-progress-bar-to-a-bash-script/238094#238094).
+* Easy updates based on `versions.sh` (update/upgrade/outdated).
+* [Bash completion](http://www.debian-administration.org/articles/316), based on [Homebrew's](https://github.com/mxcl/homebrew/blob/master/Library/Contributions/brew_bash_completion.sh).
+* `grep -r 'TODO' *` from the root of the source tree for more.
+* Check out [Aruba](https://github.com/cucumber/aruba/blob/master/features/interactive.feature) for testing.
+* Create a Debian archive once you hit 1.0, like [Debra](http://rcrowley.github.com/debra/), using [these](http://scotbofh.wordpress.com/2011/04/26/creating-your-own-signed-apt-repository-and-debian-packages/) [two](http://www.debian-administration.org/article/286/Setting_up_your_own_APT_repository_with_upload_support) resources.
+
+* Sexy website. So necessary.
+* Set up Jenkins to test changes before you push to GitHub, as well as pull requests before merging them.
+* Easy way to upgrade/uninstall setup itself (like RVM's `get head` and `implode`)
+* Use long options in scripts for readability (they're not being run manually, so who cares?)
+* Prompt for emailer.py settings (to, from, password), possibly using `read -s shellvar`. Keep it Gmail/Google Apps only, let's not get crazy.
+* Reformatting stats for my desktop, servers at work.
 * Debian support.
-* Fedora support.
-* Gentoo support.
-* Arch support.
+* Fedora support once F15 is final.
+* Make this work with Arch, but only customization (dotfiles, whatever else) since Arch [stays current](http://www.archlinux.org/packages/extra/i686/ruby/) and is source-based. Plus FPM doesn't do Arch.
+* Complete CentOS support, only if CentOS isn't dead before I get to this.
+* Gentoo support. Maybe.
 * Figure out how to profile this, possibly [like so](http://stackoverflow.com/questions/4336035/performance-profiling-tools-for-shell-scripts/4338046#4338046).
-* One-step updates based on `versions.sh`
 * Make this a full-blown packaging system, since that hasn't been done before ;-)
-* `grep -r 'TODO' *` from the root of the tree for more.
 
 ## LICENSE
 
