@@ -12,6 +12,7 @@ echo 'update: --no-rdoc --no-ri' >> ~/.gemrc
 echo "--drb" >> ~/.rspec
 echo "--colour" >> ~/.rspec
 
+rvm install ree
 rvm install 1.9.2-head
 rvm use 1.9.2-head --default
 
@@ -22,7 +23,3 @@ gem install rails
 gem install rocco
 gem install capistrano
 gem install fpm
-
-if [ $ruby18 == "yes" ]; then
-        rvm install ree
-fi
