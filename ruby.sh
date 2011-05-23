@@ -2,6 +2,12 @@
 set -e
 set -x
 
+if grep 'lucid' /etc/lsb-release 1>/dev/null; then
+		apt-get -y install git-core
+else
+		apt-get -y install git
+fi
+
 curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer
 chmod +x rvm-installer
 ./rvm-installer --version latest
