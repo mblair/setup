@@ -83,7 +83,7 @@ checkinstall --pkgname=matt-qt-faststart --pkgversion="$(date +%Y%m%d%H%M)-git" 
 
 cd /home/matt/src/x264
 make distclean
-./configure
+./configure --enable-static
 make -j3
 checkinstall --pkgname=matt-x264 --pkgversion="3:$(./version.sh | \
     awk -F'[" ]' '/POINT/{print $4"+git"$5}')" --backup=no --deldoc=yes \

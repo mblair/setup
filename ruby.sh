@@ -12,9 +12,10 @@ echo 'update: --no-rdoc --no-ri' >> ~/.gemrc
 echo "--drb" >> ~/.rspec
 echo "--colour" >> ~/.rspec
 
-rvm install ree
-rvm install 1.9.2-head
-rvm use 1.9.2-head --default
+rvm install 1.9.2
+rvm use 1.9.2 --default
+
+rvm install kiji
 
 #Because these rock.
 gem install bundler
