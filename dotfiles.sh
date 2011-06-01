@@ -35,3 +35,4 @@ sed -i "/identify/ c\\t\tautosendcmd = '/msg nickserv identify $IRC_PASS';" /hom
 
 mv /home/matt/.bashrc /home/matt/.bashrc.default
 ln -s /home/matt/dotfiles/bashrc /home/matt/.bashrc
+ln -s /home/matt/dotfiles/inputrc /home/matt/.inputrc
