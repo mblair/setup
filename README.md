@@ -97,4 +97,4 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 
 ## LICENSE
 
-New BSD. See `LICENSE`.
+MIT. See `LICENSE` for details.
