@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 EPEL_RELEASE=5-4
-GIT_VER=1.7.5.3
+GIT_VER=1.7.5.4
 SQLITE_VER=3070603
 PYTHON_VER=2.7.1
 PYTHON_SHORT_VER="`echo $PYTHON_VER | cut -f1 -d"."`.`echo $PYTHON_VER | cut -f2 -d"."`"
 PYTHON3_VER=3.2
 PYTHON3_SHORT_VER="`echo $PYTHON3_VER | cut -f1 -d"."`.`echo $PYTHON3_VER | cut -f2 -d"."`"
 PIP_VER=1.0 #You may not need this anymore.
-HG_VER=1.8.3
+HG_VER=1.8.4
 VIM_VER=7.3
 PERCONA_DEFAULT_VER=5.5
 PERCONA_MYSQL_51_VER=5.1.56
