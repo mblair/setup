@@ -81,14 +81,14 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 * Create a Debian archive once you hit 1.0, like [Debra](http://rcrowley.github.com/debra/), using [these](http://scotbofh.wordpress.com/2011/04/26/creating-your-own-signed-apt-repository-and-debian-packages/) [two](http://www.debian-administration.org/article/286/Setting_up_your_own_APT_repository_with_upload_support) resources.
 
 #### Later:
+* Debian support.
+* Fedora support.
 * Sexy website. So necessary.
 * Set up Jenkins to test changes before you push to GitHub, as well as pull requests before merging them.
 * Easy way to upgrade/uninstall setup itself (like RVM's `get head` and `implode`)
 * Use long options in scripts for readability (they're not being run manually, so who cares?)
 * Prompt for emailer.py settings (to, from, password), possibly using `read -s shellvar`. Keep it Gmail/Google Apps only, let's not get crazy.
 * Reformatting stats for my desktop, servers at work.
-* Debian support.
-* Fedora support once F15 is final.
 * Make this work with Arch, but only customization (dotfiles, whatever else) since Arch [stays current](http://www.archlinux.org/packages/extra/i686/ruby/) and is source-based. Plus FPM doesn't do Arch.
 * Complete CentOS support, only if CentOS isn't dead before I get to this.
 * Gentoo support. Maybe.
