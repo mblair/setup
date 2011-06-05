@@ -51,8 +51,9 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 ## TODO
 
 #### Soon:
-* System-wide Ruby for servers, personal Ruby for workstations.
 * Refactor so you can run arbitrary setup scripts and use versions/functions/etc, not just the reformatting ones.
+* System-wide RVM for servers, personal RVM for workstations.
+* Automate the screen bootstrapping, possibly with techniques from [here](http://www.linuxjournal.com/article/6340?page=0,1).
 * Ensure every variable has a default value, uncomment nounset.
 * Put GnuPG instructions in here.
 * Make sure you mention that this needs to be run as root, and that it updates your system.
@@ -78,7 +79,7 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 * [Bash completion](http://www.debian-administration.org/articles/316), based on [Homebrew's](https://github.com/mxcl/homebrew/blob/master/Library/Contributions/brew_bash_completion.sh).
 * `grep -r 'TODO' *` from the root of the source tree for more.
 * Check out [Aruba](https://github.com/cucumber/aruba/blob/master/features/interactive.feature) for testing.
-* Create a Debian archive once you hit 1.0, like [Debra](http://rcrowley.github.com/debra/), using [these](http://scotbofh.wordpress.com/2011/04/26/creating-your-own-signed-apt-repository-and-debian-packages/) [two](http://www.debian-administration.org/article/286/Setting_up_your_own_APT_repository_with_upload_support) resources.
+* Create a Debian archive, like [Debra](http://rcrowley.github.com/debra/), using [these](http://scotbofh.wordpress.com/2011/04/26/creating-your-own-signed-apt-repository-and-debian-packages/) [two](http://www.debian-administration.org/article/286/Setting_up_your_own_APT_repository_with_upload_support) resources.
 
 #### Later:
 * Debian support.
