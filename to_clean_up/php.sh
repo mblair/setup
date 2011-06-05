@@ -9,15 +9,15 @@ set -x
 shopt -s expand_aliases
 
 TMPDIR=/home/matt/src
-#LIBEVENT_VER=1.4.13-stable #http://monkey.org/~provos/libevent/ 
-LIBEVENT_VER=2.0.10-stable
-PHP_VER=5.3.6 #http://php.net/downloads.php 
-SUHOSIN_PATCH_VER=0.9.10 #http://www.hardened-php.net/suhosin/download.html 
+#LIBEVENT_VER=1.4.14b-stable #http://monkey.org/~provos/libevent/
+LIBEVENT_VER=2.0.12-stable
+PHP_VER=5.3.6 #http://php.net/downloads.php
+SUHOSIN_PATCH_VER=0.9.10 #http://www.hardened-php.net/suhosin/download.html
 SUHOSIN_PATCH_PHP_VER=5.3.4
 SUHOSIN_VER=0.9.32.1
-IMAGEMAGICK_VER=6.6.8-8 #http://www.imagemagick.org/script/download.php 
-IMAGICK_VER=3.0.1 #http://pecl.php.net/package/imagick 
-APC_VER=3.1.6 #http://pecl.php.net/package/APC 
+IMAGEMAGICK_VER=6.7.0-3 #http://www.imagemagick.org/script/download.php
+IMAGICK_VER=3.0.1 #http://pecl.php.net/package/imagick
+APC_VER=3.1.9 #http://pecl.php.net/package/APC
 
 if [ `uname -m` = "x86_64" ] #One can get i386 or i686, so I test the other.
 then
@@ -193,11 +193,10 @@ service php-fpm start
 
 #TODO:
 #For igbinary:
-#sudo apt-get install git-core
 #cd /opt
-#git clone http://github.com/phadej/igbinary.git
+#git clone http://github.com/igbinary/igbinary.git
 #cd igbinary
-#git checkout 1.0.2
+#git checkout 1.1.1
 #phpize
 #./configure CFLAGS="-O2 -g" --enable-igbinary
 #time make
@@ -219,7 +218,7 @@ service php-fpm start
 
 #For libmemcached:
 #cd /opt
-#wget http://launchpad.net/libmemcached/1.0/0.42/+download/libmemcached-0.42.tar.gz
+#wget http://launchpad.net/libmemcached/1.0/0.49/+download/libmemcached-0.49.tar.gz
 #tar xzvf libmemcache...
 #cd libmemcached
 #./configure
