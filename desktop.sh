@@ -116,7 +116,7 @@ add-apt-repository ppa:chromium-daily/dev
 add-apt-repository ppa:pmcenery/ppa
 add-apt-repository ppa:janvitus/ppa
 apt-get update
-apt-get -y upgrade #for libimobiledevice1 and friends
+apt-get -y upgrade #for libimobiledevice1 and friends via pmcenery's ppa.
 apt-get -y install chromium-browser chromium-browser-inspector amule
 
 if [ $d8 == "yes" ]; then
@@ -140,11 +140,11 @@ if [ $clang == "yes" ]; then
 	cd ..
 	./configure --enable-optimized
 	make -j3
-	. /home/matt/.bash_profile #Or else the previous PATH modifications won't carry over.
+	. /home/matt/.bash_profile #Or else the previous PATH modifications will be overwritten.
 	echo "PATH=/home/matt/src/llvm-$LLVM_VER/Release/bin:$PATH" >> /home/matt/.bash_profile
 fi
 
-#http://www.freetechie.com/blog/disable-nepomuk-desktop-search-on-kde-4-4-2-kubuntu-lucid-10-04/
+#TODO: http://www.freetechie.com/blog/disable-nepomuk-desktop-search-on-kde-4-4-2-kubuntu-lucid-10-04/
 mkdir -p /home/matt/.kde/share/apps/konversation/
 ln -s /home/matt/Dropbox/konversationui.rc /home/matt/.kde/share/apps/konversation/
 chown -R matt:matt /home/matt/.kde/share/apps/konversation/
@@ -192,7 +192,7 @@ chown -R matt:matt /home/matt/.purple/
 su -l matt -c "gconftool --set /apps/compiz-1/general/screen0/options/hsize --type=int 3"
 su -l matt -c "gconftool --set /apps/compiz-1/general/screen0/options/vsize --type=int 2"
 
-apt-get -y remove empathy-common evolution-common transmission-common ubuntuone-client-gnome banshee gwibber
+apt-get -y remove empathy-common evolution-common transmission-common banshee gwibber ubuntuone-client python-ubuntuone-client python-ubuntuone-storageprotocol
 
 su -l matt -c "gconftool-2 -t string -s /desktop/gnome/url-handlers/magnet/command 'deluge "%s"'"
 su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/needs_terminal false"
