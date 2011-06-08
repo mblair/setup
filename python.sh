@@ -54,7 +54,9 @@ if [ $python = "yes" ]; then
 	wget http://mercurial.selenic.com/release/mercurial-$HG_VER.tar.gz
 	tar xzvf mercurial-$HG_VER.tar.gz
 	cd mercurial-$HG_VER
-	checkinstall make install-bin PYTHON=/home/matt/src/python$PYTHON_VER/bin/python PREFIX=/home/matt/src/python$PYTHON_VER
+	mkdir /tmp/hgdir
+	make install-bin PYTHON=/home/matt/src/python$PYTHON_VER/bin/python PREFIX=/home/matt/src/python$PYTHON_VER DESTDIR=/tmp/hgdir
+	fpm -s dir -t deb -n mercurial -C /tmp/hgdir
 else
 	apt-get -y install python-dev
 	pip install mercurial
