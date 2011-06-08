@@ -90,6 +90,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386.
 * A `HACKING` file that talks about internals, once they're ready to be talked about.
 * Add a [progress bar](http://stackoverflow.com/questions/238073/how-to-add-a-progress-bar-to-a-bash-script/238094#238094).
 * Create a Debian archive, like [Debra](http://rcrowley.github.com/debra/), using [these](http://scotbofh.wordpress.com/2011/04/26/creating-your-own-signed-apt-repository-and-debian-packages/) [two](http://www.debian-administration.org/article/286/Setting_up_your_own_APT_repository_with_upload_support) resources.
+* Create a Yum repository, possibly. [Here](http://narrabilis.com/mybook/repo)'s a tutorial, I think.
 * Debian Sid support.
 * Fedora support for the workstation stuff. Maybe.
 * Sexy website. So necessary.
