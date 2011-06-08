@@ -50,44 +50,43 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 
 ## TODO
 
-#### In Progress:
-* System-wide RVM for servers, personal RVM for workstations.
-* Switch from checkinstall to fpm.
-
 #### Soon:
+* Ensure every variable has a default value, uncomment nounset.
+* Refactor so you can run arbitrary setup scripts and still use the main versions.sh/functions.sh. So 'movein' (all of what setup currently performs) would become a recipe of sorts, demoted to the same level as 'gitweb' or 'nginx'.
+* Automate the screen bootstrapping, possibly with techniques from [here](http://www.linuxjournal.com/article/6340?page=0,1).
+* An automatic installer, like oh-my-zsh and RVM.
+* Nicer directory structure (packages go in a separate folder)
+* Man pages using [ronn](http://rtomayko.github.com/ronn/)
+* Makefile like [this](https://github.com/visionmedia/git-extras/blob/master/Makefile) or a Rakefile like [this](https://github.com/cloudfoundry/vcap/blob/master/Rakefile).
+* Review everything and remove cruft (configurable username, etc.)
+* Easy updates based on `versions.sh` (update/upgrade/outdated).
+* [Bash completion](http://www.debian-administration.org/articles/316), based on [Homebrew's](https://github.com/mxcl/homebrew/blob/master/Library/Contributions/brew_bash_completion.sh).
+* Nested READMEs. I didn't realize this was possible.
+* Check out [Aruba](https://github.com/cucumber/aruba/blob/master/features/interactive.feature) for testing. [Here's another example](https://github.com/rspec/rspec-core/tree/master/features/command_line). And [here](http://skillsmatter.com/podcast/ajax-ria/lessons-learned-bdd-ing-a-command-line-utility-gem) is a video. And a [blog post](http://www.themodestrubyist.com/2010/04/22/aruba---cucumber-goodness-for-the-command-line/).
 * Test changes with [vagrant](http://vagrantup.com/docs/getting-started/index.html) before pushing to GitHub.
 * Set up a Jenkins instance to test changes locally via Vagrant before you push to GitHub, as well as any pull requests before merging them.
-* Refactor so you can run arbitrary setup scripts and still use the main versions.sh/functions.sh. So 'movein' would become a recipe of sorts, demoted to the same level as 'gitweb' or 'nginx'.
+
+* Make sure RVM's installation still works on workstations.
+
 * See what gstreamer packages are installed by the Ubuntu desktop installer's non-free option, and see if removing the others from `desktop.sh` will affect `totem-video-thumbnailer`, since you use VLC anyway.
-* Ensure every variable has a default value, uncomment nounset.
+* Nicer error handling (see test.sh), have emailer.py mention what section failed.
+* Have `emailer.py` mention time taken and attach a log of the output. Remove the `time` from the `setup.sh` invocation.
+* Fix these: `grep -Pinr "^[\t]*if[^=]*=[^=]" *`, making them all use double equals.
 * Complete CentOS support.
 * Put GnuPG instructions in here for workstations.
 * Make sure you mention that this needs to be run as root, and that it updates your system (and therefore should be run on a fresh box).
 * Better SSH security like [so](http://articles.slicehost.com/2010/4/30/ubuntu-lucid-setup-part-1)
-* Nicer error handling (see test.sh)
 * Nice installation messages like [railsready](https://github.com/joshfng/railsready/blob/master/railsready.sh) and [RVM](https://github.com/wayneeseguin/rvm/blob/master/scripts/functions/installer).
-* Have `emailer.py` mention time taken.
-* Fix these: `grep -Pinr "^[\t]*if[^=]*=[^=]" *`, making them all use double equals.
 * Figure out a Vim version string that doesn't cause apt to want to update it.
 * Nicer README like [RVM's](https://github.com/wayneeseguin/rvm/blob/master/README).
 * [Versions](http://semver.org/) with a VERSION file.
 * [Changelog](https://github.com/visionmedia/git-extras/blob/master/bin/git-changelog), or something like `git commit -v` that shows you a diff since the last tag and lets you write a changelog. I'm not sure commit messages make the most sense for a changelog.
 * A `HACKING` file that talks about internals.
-* An automatic installer, like oh-my-zsh and RVM.
-* Nicer directory structure (packages go in a separate folder)
-* Man pages using [ronn](http://rtomayko.github.com/ronn/)
-* Makefile like [this](https://github.com/visionmedia/git-extras/blob/master/Makefile) or a Rakefile like [this](https://github.com/cloudfoundry/vcap/blob/master/Rakefile).
-* Call Vim "vim" instead of "matt-vim"
-* Review everything and remove cruft (configurable username, etc.)
 * Add a [progress bar](http://stackoverflow.com/questions/238073/how-to-add-a-progress-bar-to-a-bash-script/238094#238094).
-* Easy updates based on `versions.sh` (update/upgrade/outdated).
-* [Bash completion](http://www.debian-administration.org/articles/316), based on [Homebrew's](https://github.com/mxcl/homebrew/blob/master/Library/Contributions/brew_bash_completion.sh).
 * `grep -r 'TODO' *` from the root of the source tree for more.
-* Check out [Aruba](https://github.com/cucumber/aruba/blob/master/features/interactive.feature) for testing.
 * Create a Debian archive, like [Debra](http://rcrowley.github.com/debra/), using [these](http://scotbofh.wordpress.com/2011/04/26/creating-your-own-signed-apt-repository-and-debian-packages/) [two](http://www.debian-administration.org/article/286/Setting_up_your_own_APT_repository_with_upload_support) resources.
 
 #### Later:
-* Automate the screen bootstrapping, possibly with techniques from [here](http://www.linuxjournal.com/article/6340?page=0,1).
 * Debian support.
 * Fedora support.
 * Sexy website. So necessary.

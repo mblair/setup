@@ -4,7 +4,7 @@ if [ $OS = "CentOS" ]; then
 else
 	apt-get install -y libexpat1-dev gettext libcurl4-gnutls-dev libssl-dev zlib1g-dev
 
-	apt-get -y purge git-core git #`git-core` is now `git`. Uninstall both since I'm pretty sure git-core exists in Lucid.
+	apt-get -y purge git-core git
 fi
 
 cd /home/matt/src
@@ -16,7 +16,7 @@ make -j5 all DESTDIR=/tmp/installdir prefix=/usr/local
 make install DESTDIR=/tmp/installdir prefix=/usr/local
 fpm -s dir -t deb -n git -v "1:$GIT_VER" -C /tmp/installdir
 
-if [ $ARCH -eq 64]; then
+if [ $ARCH -eq 64 ]; then
 	dpkg -i git_1\:"$GIT_VER"_amd64.deb
 else
 	dpkg -i git_1\:"$GIT_VER"_i386.deb
@@ -32,5 +32,11 @@ hash -r #to clear out the old git (/usr/bin/git), which no longer exists.
 git clone git://github.com/visionmedia/git-extras.git #git-summary, other goodies
 cd git-extras
 make install PREFIX=./build/usr/local
-fpm -s dir -t deb -n git-extras -C ./build .
-dpkg -i git-extras*.deb
+GIT_EXTRAS_VER=`grep 'VERSION=' bin/git-extras | cut -f2 -d '"'`
+fpm -s dir -t deb -n git-extras -v "1:$GIT_EXTRAS_VER" -C ./build .
+
+if [ $ARCH -eq 64 ]; then
+	dpkg -i git-extras_1\:"$GIT_EXTRAS_VER"_amd64.deb
+else
+	dpkg -i git-extras_1\:"$GIT_EXTRAS_VER"_i386.deb
+fi

@@ -33,3 +33,9 @@ mkdir /tmp/vimdir
 make -j5 DESTDIR=/tmp/vimdir
 make install DESTDIR=/tmp/vimdir
 fpm -s dir -t deb -n vim -v "$VIM_VER.$PATCH_LEVEL" -C /tmp/vimdir
+
+if [ $ARCH -eq 64 ]; then
+	dpkg -i vim_"$VIM_VER.$PATCH_LEVEL"_amd64.deb
+else
+	dpkg -i vim_"$VIM_VER.$PATCH_LEVEL"_i386.deb
+fi

@@ -1,4 +1,4 @@
-if [ $python = "yes" ]; then
+if [ $python == "yes" ]; then
 	cd /home/matt/src
 	wget http://python.org/ftp/python/$PYTHON_VER/Python-$PYTHON_VER.tar.bz2
 	tar xjvf Python-$PYTHON_VER.tar.bz2
