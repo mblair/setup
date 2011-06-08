@@ -48,7 +48,7 @@ cd /home/matt/src
 curl -O http://python-distribute.org/distribute_setup.py
 python distribute_setup.py
 
-curl -O https://github.com/pypa/pip/raw/master/contrib/get-pip.py
+curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
 python get-pip.py
 
 if [ $python = "yes" ]; then
