@@ -49,7 +49,6 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386.
 ## TODO
 
 #### Soon:
-* Ensure every variable has a default value, uncomment nounset.
 * Refactor so you can run arbitrary setup scripts and still use the main versions.sh/functions.sh. So 'movein' (all of what setup currently performs) would become a recipe of sorts, demoted to the same level as 'gitweb' or 'nginx'.
 * Review everything (this README especially).
 * Make the name of the added user configurable.

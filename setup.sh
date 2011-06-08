@@ -3,7 +3,7 @@
 #TODO: Figure out restart functionality, like so:
 #http://forums.techguy.org/linux-unix/981948-restart-parameter.html
 
-set -o nounset #Quit on unset variables.
+#set -o nounset #Quit on unset variables. #Can't use this, RVM isn't nounset clean.
 set -o errexit # Quit on error.
 set -o xtrace # Print the statement before you execute it.
 
