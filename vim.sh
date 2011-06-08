@@ -29,5 +29,7 @@ fi
 eval $configure
 
 PATCH_LEVEL=`grep -A3 'static int included_patches' src/version.c | tr -dc '[:digit:]'`
-make -j4
-checkinstall --pkgname="matt-vim" --pkgversion="$VIM_VER.$PATCH_LEVEL" make install
+mkdir /tmp/vimdir
+make -j5 DESTDIR=/tmp/vimdir
+make install DESTDIR=/tmp/vimdir
+fpm -s dir -t deb -n vim -v "$VIM_VER.$PATCH_LEVEL" -C /tmp/vimdir

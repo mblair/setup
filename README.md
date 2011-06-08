@@ -51,13 +51,15 @@ Running `setup.sh` takes about 65 minutes on my laptop (Dell XPS M1330, Core 2 D
 ## TODO
 
 #### Soon:
-* Refactor so you can run arbitrary setup scripts and use versions/functions/etc, not just the reformatting ones.
-* See what gstreamer packages are installed by the Ubuntu desktop installer's non-free option, and see if removing the others from `desktop.sh` will affect `totem-video-thumbnailer`.
 * System-wide RVM for servers, personal RVM for workstations.
 * Automate the screen bootstrapping, possibly with techniques from [here](http://www.linuxjournal.com/article/6340?page=0,1).
+* Refactor so you can run arbitrary setup scripts and still use the main versions.sh/functions.sh. So 'movein' would become a recipe of sorts, demoted to the same level as 'gitweb' or 'nginx'.
+* Test server changes with [vagrant](http://vagrantup.com/docs/getting-started/index.html)
+* See what gstreamer packages are installed by the Ubuntu desktop installer's non-free option, and see if removing the others from `desktop.sh` will affect `totem-video-thumbnailer`.
 * Ensure every variable has a default value, uncomment nounset.
 * Put GnuPG instructions in here.
 * Make sure you mention that this needs to be run as root, and that it updates your system.
+* Better SSH security like [so](http://articles.slicehost.com/2010/4/30/ubuntu-lucid-setup-part-1)
 * Nicer error handling (see test.sh)
 * Nice installation messages like [railsready](https://github.com/joshfng/railsready/blob/master/railsready.sh) and [RVM](https://github.com/wayneeseguin/rvm/blob/master/scripts/functions/installer).
 * Start using fpm instead of checkinstall.

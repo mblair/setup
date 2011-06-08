@@ -86,11 +86,15 @@ mkdir -p /home/matt/src
 
 cp $WD/ruby.sh /opt
 chmod 755 /opt/ruby.sh
-su -l matt -c "/opt/ruby.sh"
+if [ $variant == "server" ]; then
+	. /opt/ruby.sh
+else
+	su -l matt -c "/opt/ruby.sh"
+fi
 
-. $WD/checkinstall.sh
+#. $WD/checkinstall.sh
 . $WD/git.sh
-. $WD/sqlite.sh
+#. $WD/sqlite.sh
 . $WD/python.sh
 . $WD/vim.sh
 

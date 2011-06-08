@@ -41,53 +41,53 @@ postfix postfix/main_mailer_type select Internet Site
 EOD
 
 #http://ubuntuforums.org/showpost.php?p=4907079&postcount=1 (x264/libvpx/ffmpeg/qt-faststart)
-apt-get -y remove ffmpeg x264 libx264-dev
-apt-get -y install yasm texi2html libfaac-dev libjack-jackd2-dev libmp3lame-dev \
-	libopencore-amrnb-dev libopencore-amrwb-dev libsdl1.2-dev libtheora-dev \
-	libva-dev libvdpau-dev libvorbis-dev libx11-dev libxfixes-dev libxvidcore-dev
-cd /home/matt/src
-git clone git://git.videolan.org/x264
-cd x264
-./configure
-make -j3
-checkinstall --pkgname=matt-x264 --pkgversion="3:$(./version.sh | \
-    awk -F'[" ]' '/POINT/{print $4"+git"$5}')" --backup=no --deldoc=yes \
-    --fstrans=no --default
+#apt-get -y remove ffmpeg x264 libx264-dev
+#apt-get -y install yasm texi2html libfaac-dev libjack-jackd2-dev libmp3lame-dev \
+	#libopencore-amrnb-dev libopencore-amrwb-dev libsdl1.2-dev libtheora-dev \
+	#libva-dev libvdpau-dev libvorbis-dev libx11-dev libxfixes-dev libxvidcore-dev
+#cd /home/matt/src
+#git clone git://git.videolan.org/x264
+#cd x264
+#./configure
+#make -j3
+#checkinstall --pkgname=matt-x264 --pkgversion="3:$(./version.sh | \
+	#awk -F'[" ]' '/POINT/{print $4"+git"$5}')" --backup=no --deldoc=yes \
+	#--fstrans=no --default
 
-apt-get -y remove libvpx-dev
-cd /home/matt/src
-git clone git://review.webmproject.org/libvpx
-cd libvpx
-./configure
-make -j3
-checkinstall --pkgname=matt-libvpx --pkgversion="1:$(date +%Y%m%d%H%M)-git" --backup=no \
-    --deldoc=yes --fstrans=no --default
+#apt-get -y remove libvpx-dev
+#cd /home/matt/src
+#git clone git://review.webmproject.org/libvpx
+#cd libvpx
+#./configure
+#make -j3
+#checkinstall --pkgname=matt-libvpx --pkgversion="1:$(date +%Y%m%d%H%M)-git" --backup=no \
+	#--deldoc=yes --fstrans=no --default
 
-cd /home/matt/src
-git clone git://git.videolan.org/ffmpeg
-cd ffmpeg
-./configure --enable-gpl --enable-version3 --enable-nonfree --enable-postproc \
-    --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb \
-    --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis \
-    --enable-libx264 --enable-libxvid --enable-x11grab --enable-libvpx
-make -j3
-checkinstall --pkgname=matt-ffmpeg --pkgversion="5:$(date +%Y%m%d%H%M)-git" --backup=no \
-    --deldoc=yes --fstrans=no --default
-hash x264 ffmpeg ffplay ffprobe
+#cd /home/matt/src
+#git clone git://git.videolan.org/ffmpeg
+#cd ffmpeg
+#./configure --enable-gpl --enable-version3 --enable-nonfree --enable-postproc \
+	#--enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb \
+	#--enable-libopencore-amrwb --enable-libtheora --enable-libvorbis \
+	#--enable-libx264 --enable-libxvid --enable-x11grab --enable-libvpx
+#make -j3
+#checkinstall --pkgname=matt-ffmpeg --pkgversion="5:$(date +%Y%m%d%H%M)-git" --backup=no \
+	#--deldoc=yes --fstrans=no --default
+#hash x264 ffmpeg ffplay ffprobe
 
-cd /home/matt/src/ffmpeg
-make tools/qt-faststart
-checkinstall --pkgname=matt-qt-faststart --pkgversion="$(date +%Y%m%d%H%M)-git" --backup=no \
-    --deldoc=yes --fstrans=no --default install -D -m755 tools/qt-faststart \
-    /usr/local/bin/qt-faststart
+#cd /home/matt/src/ffmpeg
+#make tools/qt-faststart
+#checkinstall --pkgname=matt-qt-faststart --pkgversion="$(date +%Y%m%d%H%M)-git" --backup=no \
+	#--deldoc=yes --fstrans=no --default install -D -m755 tools/qt-faststart \
+	#/usr/local/bin/qt-faststart
 
-cd /home/matt/src/x264
-make distclean
-./configure --enable-static
-make -j3
-checkinstall --pkgname=matt-x264 --pkgversion="3:$(./version.sh | \
-    awk -F'[" ]' '/POINT/{print $4"+git"$5}')" --backup=no --deldoc=yes \
-    --fstrans=no --default
+#cd /home/matt/src/x264
+#make distclean
+#./configure --enable-static
+#make -j3
+#checkinstall --pkgname=matt-x264 --pkgversion="3:$(./version.sh | \
+	#awk -F'[" ]' '/POINT/{print $4"+git"$5}')" --backup=no --deldoc=yes \
+	#--fstrans=no --default
 
 echo "deb http://download.virtualbox.org/virtualbox/debian natty contrib" >> /etc/apt/sources.list
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | apt-key add -
