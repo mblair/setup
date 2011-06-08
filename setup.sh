@@ -44,8 +44,6 @@ while [[ $# -gt 0 ]]; do
 		--workstation)
 			export variant="workstation"
 			;;
-
-		#TODO: Figure out why installing Python from source is breaking Rhythmbox.
 		--python)
 			export python="yes"
 			;;
@@ -92,9 +90,8 @@ else
 	su -l matt -c "/opt/ruby.sh"
 fi
 
-#. $WD/checkinstall.sh
 . $WD/git.sh
-#. $WD/sqlite.sh
+#. $WD/sqlite.sh #Packaged versions are fine I suppose.
 . $WD/python.sh
 . $WD/vim.sh
 

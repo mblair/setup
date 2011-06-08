@@ -28,7 +28,6 @@ if [ $python == "yes" ]; then
 	echo "PYTHONPATH=/home/matt/src/python$PYTHON_VER/lib/python$PYTHON_VER/" >> /home/matt/.bash_profile
 	. /home/matt/.bash_profile # So I have access to those aliases.
 
-	#TODO: Install Python 3 when folks are actually using it.
 	#cd /home/matt/src
 	#wget http://www.python.org/ftp/python/$PYTHON3_SHORT_VER/Python-$PYTHON3_VER.tar.bz2
 	#tar xjvf Python-$PYTHON3_VER.tar.bz2

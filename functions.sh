@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-#TODO: Get the rpmforge versions out of here.
 
 usage() {
 	echo "Usage: $0 <variant> || --help"
@@ -37,11 +36,11 @@ system_update() {
 		rpm -Uvh http://download.fedora.redhat.com/pub/epel/5/i386/epel-release-$EPEL_RELEASE.noarch.rpm
 		cd /home/matt/src
 		if [ $ARCH -eq 64 ]; then
-			wget http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.1-1.el5.rf.x86_64.rpm
-			rpm -Uvh rpmforge-release-0.5.1-1.el5.rf.x86_64.rpm
+			wget http://packages.sw.be/rpmforge-release/rpmforge-release-$RPMFORGE_VER.el5.rf.x86_64.rpm
+			rpm -Uvh rpmforge-release-$RPMFORGE_VER.el5.rf.x86_64.rpm
 		else
-			wget http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.1-1.el5.rf.i386.rpm
-			rpm -Uvh rpmforge-release-0.5.1-1.el5.rf.i386.rpm
+			wget http://packages.sw.be/rpmforge-release/rpmforge-release-$RPMFORGE_VER.el5.rf.i386.rpm
+			rpm -Uvh rpmforge-release-$RPMFORGE_VER.el5.rf.i386.rpm
 		fi
 		yum -yq upgrade
 		yum install -y bash-completion mlocate ntp htop make gcc gcc-c++ patch pigz git gettext rpm-build bzip2-devel
@@ -53,7 +52,6 @@ system_update() {
 		apt-get update #because of debian-archive-keyring
 		apt-file update	
 
-		#TODO: Make this configurable.
 		echo "America/New_York" > /etc/timezone # /usr/share/zoneinfo
 		dpkg-reconfigure -f noninteractive tzdata
 	fi
