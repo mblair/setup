@@ -56,7 +56,12 @@ if [ $python = "yes" ]; then
 	cd mercurial-$HG_VER
 	mkdir /tmp/hgdir
 	make install-bin PYTHON=/home/matt/src/python$PYTHON_VER/bin/python PREFIX=/home/matt/src/python$PYTHON_VER DESTDIR=/tmp/hgdir
-	fpm -s dir -t deb -n mercurial -C /tmp/hgdir
+	fpm -s dir -t deb -n mercurial -v $HG_VER -C /tmp/hgdir
+	if [ $ARCH -eq 64 ]; then
+		dpkg -i mercurial_$HG_VER\_amd64.deb
+	else
+		dpkg -i mercurial_$HG_VER\_i386.deb
+	fi
 else
 	apt-get -y install python-dev
 	pip install mercurial
