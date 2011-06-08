@@ -3,7 +3,7 @@
 #TODO: Figure out restart functionality, like so:
 #http://forums.techguy.org/linux-unix/981948-restart-parameter.html
 
-#set -o nounset #Quit on unset variables.
+set -o nounset #Quit on unset variables.
 set -o errexit # Quit on error.
 set -o xtrace # Print the statement before you execute it.
 
@@ -64,6 +64,12 @@ while [[ $# -gt 0 ]]; do
 			;;
 	esac
 done
+
+#Default values.
+echo "${variant="server"}"
+echo "${python="no"}"
+echo "${d8="no"}"
+echo "${clang="no"}"
 
 arch
 os
