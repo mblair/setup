@@ -24,12 +24,12 @@ echo "--colour" >> ~/.rspec
 rvm install 1.9.2
 rvm use 1.9.2 --default
 
-rvm install kiji
+#rvm install kiji
 
 #Because these rock.
-gem install bundler
-gem install showoff
-gem install rails
-gem install rocco
-gem install capistrano
+#gem install bundler
+#gem install showoff
+#gem install rails
+#gem install rocco
+#gem install capistrano
 gem install fpm
