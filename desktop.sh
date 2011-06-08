@@ -1,7 +1,7 @@
 echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
 
 cd /home/matt/src
-curl https://github.com/rg3/youtube-dl/raw/master/youtube-dl > youtube-dl
+curl https://raw.github.com/rg3/youtube-dl/master/youtube-dl > youtube-dl
 chmod +x youtube-dl
 ln -s /home/matt/src/youtube-dl /usr/local/bin/
 

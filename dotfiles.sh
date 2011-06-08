@@ -17,8 +17,7 @@ echo '.*.sw[a-z]' > /home/matt/.gitignore_global
 cd vim
 mkdir autoload
 cd autoload
-#TODO: Use curl instead, this shit is bananas.
-wget https://github.com/tpope/vim-pathogen/raw/master/autoload/pathogen.vim --no-check-certificate # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=409938
+curl -O https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 cd /home/matt
 ln -s /home/matt/dotfiles/vim .vim
