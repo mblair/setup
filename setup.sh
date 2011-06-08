@@ -12,7 +12,7 @@ set -o xtrace # Print the statement before you execute it.
 # 1291311776.120680354 (5) + echo 0
 # where 5 is the line number and `echo 0` is the statement on that line. 
 #TODO: Figure out why this line is problematic.
-PS4='$(date "+%s.%N ($LINENO) + ")'
+#PS4='$(date "+%s.%N ($LINENO) + ")'
 
 shopt -s expand_aliases # so `python setup.py install` within this script uses the new python. saves me from having to specify the full path to the binary every time.
 

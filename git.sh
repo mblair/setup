@@ -15,7 +15,13 @@ mkdir /tmp/installdir
 make -j5 all DESTDIR=/tmp/installdir prefix=/usr/local
 make install DESTDIR=/tmp/installdir prefix=/usr/local
 fpm -s dir -t deb -n git -v "1:$GIT_VER" -C /tmp/installdir
-dpkg -i git_1\:"$GIT_VER"_amd64.deb
+
+if [ $ARCH -eq 64]; then
+	dpkg -i git_1\:"$GIT_VER"_amd64.deb
+else
+	dpkg -i git_1\:"$GIT_VER"_i386.deb
+fi
+
 cp /home/matt/src/git-$GIT_VER/contrib/completion/git-completion.bash /home/matt/.git-completion.bash
 
 cd /home/matt/src
