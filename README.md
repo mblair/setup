@@ -50,7 +50,6 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386.
 
 #### Soon:
 * Refactor so you can run arbitrary setup scripts and still use the main versions.sh/functions.sh. So 'movein' (all of what setup currently performs) would become a recipe of sorts, demoted to the same level as 'gitweb' or 'nginx'.
-* Review everything (this README especially).
 * Make the name of the added user configurable.
 * Automate the screen bootstrapping, possibly with techniques from [here](http://www.linuxjournal.com/article/6340?page=0,1).
 * An automatic installer, like oh-my-zsh and RVM. Have it bootstrap Git via a Gist or a standalone script in this repo, then clone this repo and get going.
@@ -76,6 +75,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386.
 * Make sure RVM's installation still works on workstations.
 * Reformatting stats for all machines now that you're using fpm.
 * Make the timezone configurable.
+* Review everything (this README especially).
 
 #### Later:
 * Figure out why installing Python from source is breaking Rhythmbox.
