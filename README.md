@@ -79,6 +79,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386.
 
 #### Later:
 * Figure out why installing Python from source is breaking Rhythmbox.
+* Switch to Clementine.
 * See what gstreamer packages are installed by the Ubuntu desktop installer's non-free option, and see if removing the others from `desktop.sh` will affect `totem-video-thumbnailer`, since you use VLC anyway.
 * Put GnuPG instructions in here for workstations.
 * Make sure you mention that this needs to be run as root, and that it updates your system (and therefore should be run on a fresh box).
