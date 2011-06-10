@@ -54,6 +54,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386.
 * Automate the screen bootstrapping, possibly with techniques from [here](http://www.linuxjournal.com/article/6340?page=0,1).
 * An automatic installer, like oh-my-zsh and RVM. Have it bootstrap Git via a Gist or a standalone script in this repo, then clone this repo and get going.
 * Nicer directory structure (packages go in a separate folder)
+* Use [Roundup](http://itsbonus.heroku.com/p/2010-11-01-roundup). This looks awesome.
 * Organize stuff into functions, not just files. Then you can source everything, and run `func || die` so your error handler knows where shit hit the fan.
 * Man pages using [ronn](http://rtomayko.github.com/ronn/) once you've got some useful flags that require explanation.
 * Makefile like [this](https://github.com/visionmedia/git-extras/blob/master/Makefile) or a Rakefile like [this](https://github.com/cloudfoundry/vcap/blob/master/Rakefile). Probably a Makefile, since you won't have to jump through hoops just to get it to run.
