@@ -23,7 +23,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386.
 * Open Firefox, download and install Dropbox.
 * Configure gnome-terminal & Nautilus.
 * Configure system settings.
-* `ssh-keygen -t rsa`
+* `ssh-keygen -q -b 4096 -t rsa -N [passphrase] -f /home/matt/.ssh/id_rsa`
 * `sudo apt-get update && sudo apt-get -y install xclip git byobu`
 * `byobu`
 * `cat .ssh/id_rsa.pub | xclip -selection clipboard`
