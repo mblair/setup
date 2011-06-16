@@ -49,6 +49,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386.
 ## TODO
 
 #### Soon:
+* Fix the RVM/fpm mixup. Grab/untar/compile/package software as 'matt', install as 'root'.
 * Refactor so you can run arbitrary setup scripts and still use the main versions.sh/functions.sh. So 'movein' (all of what setup currently performs) would become a recipe of sorts, demoted to the same level as 'gitweb' or 'nginx'.
 * Make the name of the added user configurable.
 * Automate the screen bootstrapping, possibly with techniques from [here](http://www.linuxjournal.com/article/6340?page=0,1).
@@ -79,6 +80,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386.
 * Review everything (this README especially).
 
 #### Later:
+* File where you can declare what's installed, not just 'movein' or 'nginx'; how about both?
 * Figure out why installing Python from source is breaking Rhythmbox.
 * Switch to [Clementine](https://launchpad.net/~me-davidsansome/+archive/clementine).
 * See what gstreamer packages are installed by the Ubuntu desktop installer's non-free option, and see if removing the others from `desktop.sh` will affect `totem-video-thumbnailer`, since you use VLC anyway.
