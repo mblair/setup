@@ -49,7 +49,7 @@ This has been tested on Linodes running Ubuntu 11.04 x86\_64 and 10.04 i386.
 ## TODO
 
 #### Soon:
-* Fix the RVM/fpm mixup. Grab/untar/compile/package software as 'matt', install as 'root'.
+* Fix the RVM/fpm mixup. Grab/untar/compile/package software as 'matt', install as 'root' on workstations.
 * Refactor so you can run arbitrary setup scripts and still use the main versions.sh/functions.sh. So 'movein' (all of what setup currently performs) would become a recipe of sorts, demoted to the same level as 'gitweb' or 'nginx'.
 * Make the name of the added user configurable.
 * Automate the screen bootstrapping, possibly with techniques from [here](http://www.linuxjournal.com/article/6340?page=0,1).
