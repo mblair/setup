@@ -10,15 +10,16 @@ if [ $variant == "server" ]; then
 	echo '[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" # load rvm function' >> /root/.bash_profile
 	echo '[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" # load rvm function' >> /home/matt/.bash_profile
 	source /root/.bash_profile
-	echo 'install: --no-rdoc --no-ri' >> /root/.gemrc
+	echo 'install: --no-rdoc --no-ri' > /root/.gemrc
 	echo 'update: --no-rdoc --no-ri' >> /root/.gemrc
 else
+	echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> /home/matt/.bash_profile
 	. "$HOME/.rvm/scripts/rvm"
 fi
 
-echo 'install: --no-rdoc --no-ri' >> /home/matt/.gemrc
+echo 'install: --no-rdoc --no-ri' > /home/matt/.gemrc
 echo 'update: --no-rdoc --no-ri' >> /home/matt/.gemrc
-echo "--drb" >> ~/.rspec
+echo "--drb" > ~/.rspec
 echo "--colour" >> ~/.rspec
 
 rvm install 1.9.2
