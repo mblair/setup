@@ -74,7 +74,7 @@ curl http://betterthangrep.com/ack-standalone > /usr/local/bin/ack
 chmod 0755 /usr/local/bin/ack
 
 cd /home/matt
-git clone git@github.com:mblair/dotfiles.git
+git clone https://github.com/mblair/dotfiles
 
 . $WD/dotfiles.sh
 
