@@ -17,6 +17,11 @@ apt-get update
 apt-get -y install libdvdcss2
 
 cat << EOD | debconf-set-selections
+keyboard-configuration keyboard-configuration/layout select USA
+keyboard-configuration keyboard-configuration/variant select USA
+EOD
+
+cat << EOD | debconf-set-selections
 sun-java6-jdk shared/accepted-sun-dlj-v1-1 select true
 sun-java6-jre shared/accepted-sun-dlj-v1-1 select true
 EOD
