@@ -3,7 +3,7 @@ apt-get install -y libexpat1-dev gettext libcurl4-gnutls-dev libssl-dev zlib1g-d
 apt-get -y purge git-core git
 
 cd /home/matt/src
-wget http://kernel.org/pub/software/scm/git/git-$GIT_VER.tar.bz2
+wget http://www.alpaca-farm.lkams.kernel.org/pub/software/scm/git/git-$GIT_VER.tar.bz2
 tar xjvf git-$GIT_VER.tar.bz2
 cd git-$GIT_VER
 mkdir /tmp/gitdir
@@ -21,7 +21,7 @@ fi
 cp /home/matt/src/git-$GIT_VER/contrib/completion/git-completion.bash /home/matt/.git-completion.bash
 
 cd /home/matt/src
-wget http://kernel.org/pub/software/scm/git/git-manpages-$GIT_VER.tar.bz2
+wget http://www.alpaca-farm.lkams.kernel.org/pub/software/scm/git/git-manpages-$GIT_VER.tar.bz2
 tar -x -C /usr/local/share/man/ -vf git-manpages-$GIT_VER.tar.bz2
 
 hash -r #to clear out the old git (/usr/bin/git), which no longer exists.
