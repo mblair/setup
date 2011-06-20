@@ -16,37 +16,36 @@ This is the tool I use to set up my Ubuntu workstations at home.
 * Change the password in `emailer.py`
 * `time ./setup.sh 2>&1 | tee ~/output`
 
-### Here's how I actually set up a workstation:
+### Here's how I set up a workstation:
 * Enter wireless password.
-* `ssh-keygen -q -b 4096 -t rsa -N [passphrase] -f /home/matt/.ssh/id_rsa`
-* Add your SSH key to GitHub.
+* `sudo apt-get update && sudo apt-get -y install xclip git byobu`
+* `ssh-keygen -q -b 4096 -t rsa -f /home/matt/.ssh/id_rsa`
+* Add the SSH key to GitHub.
 * `git clone git@github.com:mblair/setup.git`
 * `git clone git@github.com:mblair/personal.git`
-* `sudo apt-get update && sudo apt-get -y install xclip git byobu`
-* Configure gnome-terminal & Nautilus.
-* Configure system settings.
 * `byobu`
 * `sudo su`
 * `cd setup`
 * Change the password in `emailer.py`
 * `time ./setup.sh 2>&1 | tee /home/matt/output`
+* Open Firefox, download and install Dropbox.
 * Set chromium-browser settings: sync, download location, fonts, enable global menu support in about:flags.
+* Configure gnome-terminal & Nautilus.
+* Configure system settings.
 * `ssh-copy-id shortname` for all of my servers.
 * Remove the first entries (GitHub) from `~/.ssh/known_hosts` since they were added before HashKnownHosts was turned off.
 * Build thumbnails.
-* Restart.
 * Install Virtualbox Extension Pack, guest OSs & Guest Additions.
-* Configure Rhythmbox.
+* Configure Rhythmbox (may no longer be necessary).
 * Configure Deluge (download location, ports, bandwidth) (may no longer be necessary)
 * Hit 'Install Drivers' to get the restricted drivers tray icon to go away on your laptop (boo Broadcom).
-* Open Firefox, download and install Dropbox.
 * Install [this](https://addons.mozilla.org/en-US/firefox/addon/video-downloadhelper/)
+* Restart.
 
 ## TODO
 
-* See if 'matt' has been created, and create it if not (so you can test this using Linode).
-* Set up an APT mirror at home, like [this](http://odzangba.wordpress.com/2007/12/24/use-apt-mirror-to-create-your-own-ubuntu-mirror/).
-* Create a Debian archive for git/python/vim/pidgin/etc, like [Debra](http://rcrowley.github.com/debra/), using [these](http://scotbofh.wordpress.com/2011/04/26/creating-your-own-signed-apt-repository-and-debian-packages/) [two](http://www.debian-administration.org/article/286/Setting_up_your_own_APT_repository_with_upload_support) resources.
+* Set up an APT mirror at home, like [this](http://odzangba.wordpress.com/2007/12/24/use-apt-mirror-to-create-your-own-ubuntu-mirror/), so `apt-get dist-upgrade` doesn't take so long.
+* Create a Debian archive for git/python/vim/pidgin/etc, like [Debra](http://rcrowley.github.com/debra/), using [these](http://scotbofh.wordpress.com/2011/04/26/creating-your-own-signed-apt-repository-and-debian-packages/) [two](http://www.debian-administration.org/article/286/Setting_up_your_own_APT_repository_with_upload_support) resources, so you only have to build packages once per release.
 
 * Automate the screen bootstrapping, possibly with techniques from [here](http://www.linuxjournal.com/article/6340?page=0,1).
 * An automatic installer, like oh-my-zsh and RVM. Have it bootstrap Git via a Gist or a standalone script in this repo, then clone this repo (via https, since you can't add your public key without your API key being available somehow) and get going.
