@@ -7,14 +7,22 @@ if [ $python == "yes" ]; then
 	#Attempting to cope with this foolishness:
 	#https://wiki.ubuntu.com/MultiarchSpec
 	#http://bugs.python.org/issue11715
-	curl http://hg.python.org/cpython/raw-rev/bd0f73a9538e > barry_multiarch_patch
-	patch -p1 < barry_multiarch_patch
+	#curl http://hg.python.org/cpython/raw-rev/bd0f73a9538e > barry_multiarch_patch
+	#patch -p1 < barry_multiarch_patch
 
 	./configure --prefix=/home/matt/src/python$PYTHON_VER --with-threads --enable-shared
-	make -j3
-	make install #Not dangerous. Peep the prefix.
-	touch /home/matt/.bash_profile
-	chown matt:matt /home/matt/.bash_profile
+	mkdir /tmp/pydir
+	make -j3 DESTDIR=/tmp/pydir
+	make install DESTDIR=/tmp/pydir
+	chown -R matt:matt /tmp/pydir /home/matt/src/Python-$PYTHON_VER
+	su -l matt -c "cd /home/matt/src/Python-$PYTHON_VER && fpm -s dir -t deb -n python -v $PYTHON_VER -C /tmp/pydir"
+
+if [ $ARCH -eq 64 ]; then
+	dpkg -i python_"$PYTHON_VER"_amd64.deb
+else
+	dpkg -i python_"$PYTHON_VER"_i386.deb
+fi
+
 	echo "alias python='/home/matt/src/python$PYTHON_VER/bin/python'" >> /home/matt/.bash_profile
 	echo "alias python$PYTHON_SHORT_VER='/home/matt/src/python$PYTHON_VER/bin/python'" >> /home/matt/.bash_profile
 
@@ -56,7 +64,8 @@ if [ $python = "yes" ]; then
 	cd mercurial-$HG_VER
 	mkdir /tmp/hgdir
 	make install-bin PYTHON=/home/matt/src/python$PYTHON_VER/bin/python PREFIX=/home/matt/src/python$PYTHON_VER DESTDIR=/tmp/hgdir
-	fpm -s dir -t deb -n mercurial -v $HG_VER -C /tmp/hgdir
+	chown -R matt:matt /tmp/hgdir /home/matt/src/mercurial-$HG_VER
+	su -l matt -c "cd /home/matt/src/mercurial-$HG_VER && fpm -s dir -t deb -n mercurial -v $HG_VER -C /tmp/hgdir"
 	if [ $ARCH -eq 64 ]; then
 		dpkg -i mercurial_$HG_VER\_amd64.deb
 	else

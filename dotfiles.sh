@@ -1,7 +1,7 @@
 cd /home/matt/dotfiles
 ln -s /home/matt/dotfiles/gitconfig /home/matt/.gitconfig
-git submodule update --init
 echo '.*.sw[a-z]' > /home/matt/.gitignore_global
+git submodule update --init
 
 #To add:
 #git submodule add git://github.com/user/repo.git vim/bundle/repo

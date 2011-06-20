@@ -17,8 +17,6 @@ apt-get update
 apt-get -y install libdvdcss2
 
 cat << EOD | debconf-set-selections
-sun-java5-jdk shared/accepted-sun-dlj-v1-1 select true
-sun-java5-jre shared/accepted-sun-dlj-v1-1 select true
 sun-java6-jdk shared/accepted-sun-dlj-v1-1 select true
 sun-java6-jre shared/accepted-sun-dlj-v1-1 select true
 EOD
@@ -99,18 +97,35 @@ apt-get install -y miredo subversion unrar rar cfv \
 	gstreamer0.10-plugins-ugly-multiverse skype  \
 	gstreamer0.10-plugins-bad-multiverse virtualbox-4.0 sun-java6-plugin \
 	electricsheep libnotify-bin ncurses-term ttf-inconsolata \
-	ttf-droid pandoc ubuntu-restricted-extras deluge-torrent pidgin \
+	ttf-droid pandoc ubuntu-restricted-extras \
 	k3b rhythmbox vlc mp3fs testdisk gddrescue \
 	texlive-latex-recommended texlive-xetex texlive-latex-extra texlive-fonts-recommended redshift
 
-#TODO: Make a package with fpm for 1.3.2.
-#https://github.com/jordansissel/fpm/wiki/ConvertingPython
-#http://dev.deluge-torrent.org/wiki/ChangeLog
-#add-apt-repository ppa:deluge-team/ppa
-
-#TODO: Check for newer versions, since the ones in the Natty repos are just as new.
 #http://developer.pidgin.im/wiki/ChangeLog
 #add-apt-repository ppa:pidgin-developers/ppa
+apt-get -y build-dep pidgin
+
+cd /home/matt/src
+
+wget http://sourceforge.net/projects/pidgin/files/Pidgin/$PIDGIN_VER/pidgin-$PIDGIN_VER.tar.bz2
+tar xjvf pidgin-$PIDGIN_VER.tar.bz2
+cd pidgin-$PIDGIN_VER
+./configure
+mkdir /tmp/pidgindir
+make -j3 DESTDIR=/tmp/pidgindir
+make install DESTDIR=/tmp/pidgindir
+chown -R matt:matt /tmp/pidgindir /home/matt/src/pidgin-$PIDGIN_VER
+su -l matt -c "cd /home/matt/src/pidgin-$PIDGIN_VER && fpm -s dir -t deb -n pidgin -v $PIDGIN_VER -C /tmp/pidgindir"
+
+if [ $ARCH -eq 64 ]; then
+	dpkg -i pidgin_"$PIDGIN_VER"_amd64.deb
+else
+	dpkg -i pidgin_"$PIDGIN_VER"_i386.deb
+fi
+
+#https://github.com/jordansissel/fpm/wiki/ConvertingPython
+#http://dev.deluge-torrent.org/wiki/ChangeLog
+add-apt-repository ppa:deluge-team/ppa
 
 #TODO: Check to see if Natty pkgs show up here.
 #add-apt-repository ppa:jonls/redshift-ppa
@@ -120,7 +135,7 @@ add-apt-repository ppa:pmcenery/ppa
 add-apt-repository ppa:janvitus/ppa
 apt-get update
 apt-get -y upgrade #for libimobiledevice1 and friends via pmcenery's ppa.
-apt-get -y install chromium-browser chromium-browser-inspector amule
+apt-get -y install chromium-browser chromium-browser-inspector amule deluge
 
 if [ $d8 == "yes" ]; then
 	apt-get -y install libreadline-dev scons
@@ -148,19 +163,26 @@ if [ $clang == "yes" ]; then
 fi
 
 #TODO: http://www.freetechie.com/blog/disable-nepomuk-desktop-search-on-kde-4-4-2-kubuntu-lucid-10-04/
-mkdir -p /home/matt/.kde/share/apps/konversation/
-ln -s /home/matt/Dropbox/konversationui.rc /home/matt/.kde/share/apps/konversation/
-chown -R matt:matt /home/matt/.kde/share/apps/konversation/
-mkdir -p /home/matt/.kde/share/config/
-ln -s /home/matt/Dropbox/konversationrc /home/matt/.kde/share/config/
-chown -R matt:matt /home/matt/.kde/
+#mkdir -p /home/matt/.kde/share/apps/konversation/
+#ln -s /home/matt/Dropbox/konversationui.rc /home/matt/.kde/share/apps/konversation/
+#chown -R matt:matt /home/matt/.kde/share/apps/konversation/
+#mkdir -p /home/matt/.kde/share/config/
+#ln -s /home/matt/Dropbox/konversationrc /home/matt/.kde/share/config/
+#chown -R matt:matt /home/matt/.kde/
 
 cd /home/matt/src
-wget http://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
-dpkg -i --force-depends google-chrome-unstable_current_amd64.deb
+
+if [ $ARCH -eq 64 ]; then
+	wget http://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb
+	dpkg -i --force-depends google-chrome-unstable_current_amd64.deb
+else
+	wget http://dl.google.com/linux/direct/google-chrome-unstable_current_i386.deb
+	dpkg -i --force-depends google-chrome-unstable_current_i386.deb
+fi
+
 apt-get -yf install
 cp /opt/google/chrome/libpdf.so /usr/lib/chromium-browser
-ln -s /home/matt/setup/Custom.css /home/matt/.config/chromium/Default/User\ StyleSheets/
+#ln -s /home/matt/setup/Custom.css /home/matt/.config/chromium/Default/User\ StyleSheets/
 
 #ar vx google-chrome-unstable_current_amd64.deb
 #unlzma data.tar.lzma
@@ -173,22 +195,22 @@ cd rbeq
 cp -R rhythmbox /home/matt/.gnome2
 cd /home/matt/.local/share
 rm -rf rhythmbox
-ln -s /home/matt/Dropbox/rhythmbox/ rhythmbox
+ln -s /home/matt/personal/rhythmbox/ rhythmbox
 
-ln -s /home/matt/Dropbox/ssh_config /home/matt/.ssh/config
+ln -s /home/matt/personal/ssh_config /home/matt/.ssh/config
 chmod 600 /home/matt/.ssh/config
 sed -i 's/    HashKnownHosts yes/    HashKnownHosts no/' /etc/ssh/ssh_config
 
 mkdir /home/matt/Deluge_Incoming
 chown -R matt:matt /home/matt/Deluge_Incoming
 mkdir -p /home/matt/.config/deluge
-for f in /home/matt/Dropbox/deluge/*; do ln -s $f /home/matt/.config/deluge/`basename $f`; done
+for f in $WD/deluge/*; do ln -s $f /home/matt/.config/deluge/`basename $f`; done
 chown -R matt:matt /home/matt/.config/deluge/
 
 mkdir -p /home/matt/.purple/
-ln -s /home/matt/Dropbox/purple/accounts.xml /home/matt/.purple/
-ln -s /home/matt/Dropbox/purple/logs/ /home/matt/.purple/
-ln -s /home/matt/Dropbox/purple/prefs.xml /home/matt/.purple/
+ln -s /home/matt/personal/purple/accounts.xml /home/matt/.purple/
+ln -s /home/matt/personal/purple/logs/ /home/matt/.purple/
+ln -s /home/matt/personal/purple/prefs.xml /home/matt/.purple/
 chown -R matt:matt /home/matt/.purple/
 
 #gconftool-2 --set /apps/metacity/general/button_layout --type string ":"
