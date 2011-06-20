@@ -46,11 +46,11 @@ This is the tool I use to set up my Ubuntu workstations at home.
 
 * Set up an APT mirror at home, like [this](http://odzangba.wordpress.com/2007/12/24/use-apt-mirror-to-create-your-own-ubuntu-mirror/), so `apt-get dist-upgrade` doesn't take so long.
 * Create a Debian archive for git/python/vim/pidgin/etc, like [Debra](http://rcrowley.github.com/debra/), using [these](http://scotbofh.wordpress.com/2011/04/26/creating-your-own-signed-apt-repository-and-debian-packages/) [two](http://www.debian-administration.org/article/286/Setting_up_your_own_APT_repository_with_upload_support) resources, so you only have to build packages once per release.
+* Easy updates based on `versions.sh` (upgrade/downgrade/outdated). Upgrade uninstalls the old packages, grab the new source, compile, build, install. Downgrade does the same, needs an explicit version. Outdated compares installed versions with `versions.sh`. Upgrade without a package upgrades all.
 
 * Automate the screen bootstrapping, possibly with techniques from [here](http://www.linuxjournal.com/article/6340?page=0,1).
 * An automatic installer, like oh-my-zsh and RVM. Have it bootstrap Git via a Gist or a standalone script in this repo, then clone this repo (via https, since you can't add your public key without your API key being available somehow) and get going.
 * Figure out restart functionality, like [so](http://forums.techguy.org/linux-unix/981948-restart-parameter.html).
-* Easy updates based on `versions.sh` (update/upgrade/downgrade/outdated).
 * Figure out why installing Python from source is breaking Rhythmbox.
 * Possibly switch to [Clementine](https://launchpad.net/~me-davidsansome/+archive/clementine).
 * Put GnuPG instructions in here.
