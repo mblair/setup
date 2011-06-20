@@ -8,7 +8,7 @@ This is the tool I use to set up my Ubuntu workstations at home.
 
 * `apt-get update && apt-get -y install git byobu`
 * `byobu`
-* `ssh-keygen -q -b 4096 -t rsa -N [passphrase] -f /home/matt/.ssh/id_rsa`
+* `ssh-keygen -q -b 4096 -t rsa -N [passphrase] -f /root/.ssh/id_rsa`
 * Add the SSH key to GitHub.
 * `git clone git@github.com:mblair/setup.git`
 * `git clone git@github.com:mblair/personal.git`
