@@ -107,26 +107,8 @@ apt-get install -y miredo subversion unrar rar cfv \
 	texlive-latex-recommended texlive-xetex texlive-latex-extra texlive-fonts-recommended redshift
 
 #http://developer.pidgin.im/wiki/ChangeLog
-#add-apt-repository ppa:pidgin-developers/ppa
-apt-get -y build-dep pidgin
-
-cd /home/matt/src
-
-wget http://sourceforge.net/projects/pidgin/files/Pidgin/$PIDGIN_VER/pidgin-$PIDGIN_VER.tar.bz2
-tar xjvf pidgin-$PIDGIN_VER.tar.bz2
-cd pidgin-$PIDGIN_VER
-./configure
-mkdir /tmp/pidgindir
-make -j3 DESTDIR=/tmp/pidgindir
-make install DESTDIR=/tmp/pidgindir
-chown -R matt:matt /tmp/pidgindir /home/matt/src/pidgin-$PIDGIN_VER
-su -l matt -c "cd /home/matt/src/pidgin-$PIDGIN_VER && fpm -s dir -t deb -n pidgin -v $PIDGIN_VER -C /tmp/pidgindir"
-
-if [ $ARCH -eq 64 ]; then
-	dpkg -i pidgin_"$PIDGIN_VER"_amd64.deb
-else
-	dpkg -i pidgin_"$PIDGIN_VER"_i386.deb
-fi
+add-apt-repository ppa:pidgin-developers/ppa
+apt-get -y install pidgin-libnotify
 
 #https://github.com/jordansissel/fpm/wiki/ConvertingPython
 #http://dev.deluge-torrent.org/wiki/ChangeLog

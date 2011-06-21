@@ -17,10 +17,10 @@ mkdir /tmp/vimdir
 make -j3 DESTDIR=/tmp/vimdir
 make install DESTDIR=/tmp/vimdir
 chown -R matt:matt /tmp/vimdir /home/matt/src/vim
-su -l matt -c "cd /home/matt/src/vim && fpm -s dir -t deb -n vim -v "$VIM_VER.$PATCH_LEVEL" -C /tmp/vimdir"
+su -l matt -c "cd /home/matt/src/vim && fpm -s dir -t deb -n vim -v 2:"$VIM_VER.$PATCH_LEVEL" -C /tmp/vimdir"
 
 if [ $ARCH -eq 64 ]; then
-	dpkg -i vim_"$VIM_VER.$PATCH_LEVEL"_amd64.deb
+	dpkg -i vim_2\:"$VIM_VER.$PATCH_LEVEL"_amd64.deb
 else
-	dpkg -i vim_"$VIM_VER.$PATCH_LEVEL"_i386.deb
+	dpkg -i vim_2\:"$VIM_VER.$PATCH_LEVEL"_i386.deb
 fi
