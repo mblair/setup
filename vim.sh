@@ -12,7 +12,7 @@ fi
 
 ./configure --enable-pythoninterp --enable-multibyte --with-features=huge --enable-cscope --enable-gui=gnome2
 
-PATCH_LEVEL=`grep -A3 'static int included_patches' src/version.c | tr -dc '[:digit:]'`
+PATCH_LEVEL=`/bin/grep -A3 'static int included_patches' src/version.c | tr -dc '[:digit:]'` #/bin/grep to avoid my grep alias.
 mkdir /tmp/vimdir
 make -j3 DESTDIR=/tmp/vimdir
 make install DESTDIR=/tmp/vimdir

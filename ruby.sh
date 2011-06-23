@@ -14,7 +14,7 @@ echo 'update: --no-rdoc --no-ri' >> /home/matt/.gemrc
 echo "--drb" > /home/matt/.rspec
 echo "--colour" >> /home/matt/.rspec
 
-rvm install 1.9.2
+rvm install 1.9.2 --docs #RVM doesn't install ri documentation by default.
 rvm use 1.9.2 --default
 
 #rvm install kiji
