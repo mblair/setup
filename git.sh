@@ -37,3 +37,7 @@ if [ $ARCH -eq 64 ]; then
 else
 	dpkg -i git-extras_1\:"$GIT_EXTRAS_VER"_i386.deb
 fi
+
+#For `git create`, `git init -g`
+curl http://defunkt.io/hub/standalone -sLo /usr/local/bin/hub
+chmod 755 /usr/local/bin/hub
