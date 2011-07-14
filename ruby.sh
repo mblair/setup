@@ -20,14 +20,4 @@ rvm use 1.9.2 --default
 #rvm install kiji
 
 #Because these rock.
-gem install bundler
-gem install showoff
-gem install capistrano
-gem install rocco
-gem install rails
-gem install fpm
-gem install redis
-gem install sinatra
-gem install json
-gem install mail
-gem install unicorn
+gem install bundler showoff capistrano rocco rails fpm redis sinatra json mail unicorn shotgun haml
