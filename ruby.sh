@@ -26,3 +26,8 @@ gem install capistrano
 gem install rocco
 gem install rails
 gem install fpm
+gem install redis
+gem install sinatra
+gem install json
+gem install mail
+gem install unicorn
