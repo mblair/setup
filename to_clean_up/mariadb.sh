@@ -5,7 +5,8 @@ set -x
 shopt -s expand_aliases
 
 TMPDIR=/home/matt/src
-MARIADB_VER=5.2.6
+#MARIADB_VER=5.2.6
+MARIADB_VER=5.3.0-beta
 MARIADB_PASSWORD=changeme
 
 if [ `uname -m` = "x86_64" ] #One can get i386 or i686, so I test the other.
@@ -31,7 +32,7 @@ else
 fi
 
 cd /home/matt/src
-wget http://askmonty.org/downloads/r/http://ftp.osuosl.org/pub/mariadb/mariadb-$MARIADB_VER/kvm-tarbake-jaunty-x86/mariadb-$MARIADB_VER.tar.gz
+wget http://ftp.osuosl.org/pub/mariadb/mariadb-$MARIADB_VER/kvm-tarbake-jaunty-x86/mariadb-$MARIADB_VER.tar.gz
 tar xzvf mariadb-$MARIADB_VER.tar.gz
 cd mariadb-$MARIADB_VER
 
