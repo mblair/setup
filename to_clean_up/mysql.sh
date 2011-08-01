@@ -3,7 +3,7 @@
 set -e
 set -x
 
-MYSQL_VER=5.5.11
+MYSQL_VER=5.5.15
 MYSQL_PASSWORD=changeme
 
 if [[ `cat /etc/*-release | awk '{print $1}' -` = "CentOS" ]]; then

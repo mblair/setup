@@ -104,7 +104,8 @@ apt-get install -y miredo subversion unrar rar cfv \
 	electricsheep libnotify-bin ncurses-term ttf-inconsolata \
 	ttf-droid pandoc ubuntu-restricted-extras \
 	k3b rhythmbox vlc mp3fs testdisk gddrescue \
-	texlive-latex-recommended texlive-xetex texlive-latex-extra texlive-fonts-recommended redshift
+	texlive-latex-recommended texlive-xetex texlive-latex-extra \
+	texlive-fonts-recommended redshift deluge
 
 #http://developer.pidgin.im/wiki/ChangeLog
 add-apt-repository ppa:pidgin-developers/ppa
@@ -112,7 +113,7 @@ apt-get -y install pidgin-libnotify
 
 #https://github.com/jordansissel/fpm/wiki/ConvertingPython
 #http://dev.deluge-torrent.org/wiki/ChangeLog
-add-apt-repository ppa:deluge-team/ppa
+#add-apt-repository ppa:deluge-team/ppa
 
 #TODO: Check to see if Natty pkgs show up here.
 #add-apt-repository ppa:jonls/redshift-ppa
@@ -122,7 +123,7 @@ add-apt-repository ppa:pmcenery/ppa
 add-apt-repository ppa:janvitus/ppa
 apt-get update
 apt-get -y upgrade #for libimobiledevice1 and friends via pmcenery's ppa.
-apt-get -y install chromium-browser chromium-browser-inspector amule deluge
+apt-get -y install chromium-browser chromium-browser-inspector amule
 
 if [ $d8 == "yes" ]; then
 	apt-get -y install libreadline-dev scons

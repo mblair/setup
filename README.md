@@ -22,6 +22,7 @@ This is the tool I use to set up my Ubuntu workstations at home.
 * `ssh-keygen -q -b 4096 -t rsa -f /home/matt/.ssh/id_rsa`
 * `cat ~/.ssh/id_rsa.pub | xclip -selection clipboard`
 * Add the SSH key to GitHub.
+* `git config --global github.token <token>`
 * `git clone git@github.com:mblair/setup.git`
 * `git clone git@github.com:mblair/personal.git`
 * `byobu`
