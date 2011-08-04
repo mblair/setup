@@ -9,6 +9,7 @@ chmod +x rvm-installer
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> /home/matt/.bash_profile
 . "$HOME/.rvm/scripts/rvm"
 
+echo "export rvm_pretty_print_flag=1" > /home/matt/.rvmrc
 echo 'install: --no-rdoc --no-ri' > /home/matt/.gemrc
 echo 'update: --no-rdoc --no-ri' >> /home/matt/.gemrc
 echo "--drb" > /home/matt/.rspec
