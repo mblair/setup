@@ -105,7 +105,7 @@ apt-get install -y miredo subversion unrar rar cfv \
 	ttf-droid pandoc ubuntu-restricted-extras \
 	k3b rhythmbox vlc mp3fs testdisk gddrescue \
 	texlive-latex-recommended texlive-xetex texlive-latex-extra \
-	texlive-fonts-recommended redshift deluge
+	texlive-fonts-recommended redshift deluge apache2
 
 #http://developer.pidgin.im/wiki/ChangeLog
 add-apt-repository ppa:pidgin-developers/ppa
@@ -212,3 +212,26 @@ su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/needs_t
 su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/enabled true"
 su -l matt -c "xdg-mime default deluge.desktop x-scheme-handler/magnet"
 sed -i 's/Exec=deluge-gtk/Exec=deluge-gtk %U/' /usr/share/applications/deluge.desktop
+
+cd /home/matt/
+hg clone http://hg.openjdk.java.net/jdk7/jdk7 openjdk
+cd openjdk/
+sh ./get_source.sh
+apt-get -y build-dep openjdk-6
+apt-get -y install openjdk-6-jdk
+export LANG=C ALT_BOOTDIR=/usr/lib/jvm/java-6-openjdk ALLOW_DOWNLOADS=true
+make all
+
+cd /home/matt/
+git clone git://gitorious.org/learn-python-the-hard-way/learn-python-the-hard-way.git
+cd learn-python-the-hard-way
+make latex
+cd _build/latex
+make all-pdf
+mv LearnPythonTheHardWay.pdf ~/Dropbox
+
+cd /home/matt/
+git clone git://gitorious.org/learnrubythehardway/learnrubythehardway.git
+cd learnrubythehardway
+jekyll --no-auto --pygments
+cp -R _site/* /var/www/
