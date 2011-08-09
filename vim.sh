@@ -6,9 +6,9 @@ cd /home/matt/src
 hg clone https://vim.googlecode.com/hg/ vim
 cd vim
 
-if [ $python = "yes" ]; then
-	PATH="/home/matt/src/python$PYTHON_VER/bin:$PATH" #Hack to make Vim use a juicy Python, only if I installed it.
-fi
+#if [ $python = "yes" ]; then
+	#PATH="/home/matt/src/python$PYTHON_VER/bin:$PATH" #Hack to make Vim use a juicy Python, only if I installed it.
+#fi
 
 ./configure --enable-pythoninterp --enable-multibyte --with-features=huge --enable-cscope --enable-gui=gnome2
 

@@ -10,31 +10,32 @@ if [ $python == "yes" ]; then
 	#curl http://hg.python.org/cpython/raw-rev/bd0f73a9538e > barry_multiarch_patch
 	#patch -p1 < barry_multiarch_patch
 
-	./configure --prefix=/home/matt/src/python$PYTHON_VER --with-threads --enable-shared
+	./configure --with-threads --enable-shared
 	mkdir /tmp/pydir
 	make -j3 DESTDIR=/tmp/pydir
 	make install DESTDIR=/tmp/pydir
 	chown -R matt:matt /tmp/pydir /home/matt/src/Python-$PYTHON_VER
 	su -l matt -c "cd /home/matt/src/Python-$PYTHON_VER && fpm -s dir -t deb -n python -v $PYTHON_VER -C /tmp/pydir"
 
-if [ $ARCH -eq 64 ]; then
-	dpkg -i python_"$PYTHON_VER"_amd64.deb
-else
-	dpkg -i python_"$PYTHON_VER"_i386.deb
-fi
+	if [ $ARCH -eq 64 ]; then
+		dpkg -i python_"$PYTHON_VER"_amd64.deb
+	else
+		dpkg -i python_"$PYTHON_VER"_i386.deb
+	fi
 
-	echo "alias python='/home/matt/src/python$PYTHON_VER/bin/python'" >> /home/matt/.bash_profile
-	echo "alias python$PYTHON_SHORT_VER='/home/matt/src/python$PYTHON_VER/bin/python'" >> /home/matt/.bash_profile
+	#echo "alias python='/home/matt/src/python$PYTHON_VER/bin/python'" >> /home/matt/.bash_profile
+	#echo "alias python$PYTHON_SHORT_VER='/home/matt/src/python$PYTHON_VER/bin/python'" >> /home/matt/.bash_profile
 
-	#TODO: Figure out why you're appending instead of prepending.
-	echo "PATH=$PATH:/home/matt/src/python$PYTHON_VER/bin" >> /home/matt/.bash_profile
+	##TODO: Figure out why you're appending instead of prepending.
+	#echo "PATH=$PATH:/home/matt/src/python$PYTHON_VER/bin" >> /home/matt/.bash_profile
 
-	echo "/home/matt/src/python$PYTHON_VER/lib" > /etc/ld.so.conf.d/python$PYTHON_VER.conf
-	ldconfig
+	#echo "/home/matt/src/python$PYTHON_VER/lib" > /etc/ld.so.conf.d/python$PYTHON_VER.conf
+	#ldconfig
 
 	#TODO: What's this for again? Mercurial maybe?
-	echo "PYTHONPATH=/home/matt/src/python$PYTHON_VER/lib/python$PYTHON_VER/" >> /home/matt/.bash_profile
-	. /home/matt/.bash_profile # So I have access to those aliases.
+	#echo "PYTHONPATH=/home/matt/src/python$PYTHON_VER/lib/python$PYTHON_VER/" >> /home/matt/.bash_profile
+	#echo  "PATH=/usr/local/bin:$PATH" >> /home/matt/.bash_profile
+	#. /home/matt/.bash_profile # So I have access to those aliases.
 
 	#cd /home/matt/src
 	#wget http://www.python.org/ftp/python/$PYTHON3_SHORT_VER/Python-$PYTHON3_VER.tar.bz2
@@ -63,7 +64,8 @@ if [ $python = "yes" ]; then
 	tar xzvf mercurial-$HG_VER.tar.gz
 	cd mercurial-$HG_VER
 	mkdir /tmp/hgdir
-	make install-bin PYTHON=/home/matt/src/python$PYTHON_VER/bin/python PREFIX=/home/matt/src/python$PYTHON_VER DESTDIR=/tmp/hgdir
+	#make install-bin PYTHON=/home/matt/src/python$PYTHON_VER/bin/python PREFIX=/home/matt/src/python$PYTHON_VER DESTDIR=/tmp/hgdir
+	make install-bin DESTDIR=/tmp/hgdir
 	chown -R matt:matt /tmp/hgdir /home/matt/src/mercurial-$HG_VER
 	su -l matt -c "cd /home/matt/src/mercurial-$HG_VER && fpm -s dir -t deb -n mercurial -v $HG_VER -C /tmp/hgdir"
 	if [ $ARCH -eq 64 ]; then
