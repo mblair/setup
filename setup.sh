@@ -41,7 +41,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 #Default values.
-echo "${python="yes"}"
+echo "${python="no"}"
 echo "${d8="no"}"
 echo "${clang="no"}"
 
