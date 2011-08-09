@@ -33,7 +33,7 @@ This is the tool I use to set up my Ubuntu workstations at home.
 * `git config --global github.token <token>`
 * Restart.
 * Open Firefox, download and install Dropbox.
-* Set chromium-browser settings: sync, download location, fonts, enable global menu support in about:flags.
+* Set chromium-browser settings: sync, download location, fonts.
 * Configure gnome-terminal & Nautilus.
 * Configure the rest of the system settings.
 * `ssh-copy-id shortname` for all of my servers.
