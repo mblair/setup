@@ -29,12 +29,13 @@ This is the tool I use to set up my Ubuntu workstations at home.
 * `sudo su`
 * `cd setup`
 * Change the password in `emailer.py`
+* Change power & screen saver settings.
 * `time ./setup.sh 2>&1 | tee /home/matt/output`
 * Restart.
 * Open Firefox, download and install Dropbox.
 * Set chromium-browser settings: sync, download location, fonts, enable global menu support in about:flags.
 * Configure gnome-terminal & Nautilus.
-* Configure system settings.
+* Configure the rest of the system settings.
 * `ssh-copy-id shortname` for all of my servers.
 * Remove the first entries (GitHub) from `~/.ssh/known_hosts` since they were added before HashKnownHosts was turned off.
 * Build thumbnails.
