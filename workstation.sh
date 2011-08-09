@@ -213,14 +213,14 @@ su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/enabled
 #su -l matt -c "xdg-mime default deluge.desktop x-scheme-handler/magnet"
 sed -i 's/Exec=deluge-gtk/Exec=deluge-gtk %U/' /usr/share/applications/deluge.desktop
 
-cd /home/matt/
-hg clone http://hg.openjdk.java.net/jdk7/jdk7 openjdk
-cd openjdk/
-sh ./get_source.sh
-apt-get -y build-dep openjdk-6
-apt-get -y install openjdk-6-jdk
-export LANG=C ALT_BOOTDIR=/usr/lib/jvm/java-6-openjdk ALLOW_DOWNLOADS=true
-make all
+#cd /home/matt/
+#hg clone http://hg.openjdk.java.net/jdk7/jdk7 openjdk
+#cd openjdk/
+#sh ./get_source.sh
+#apt-get -y build-dep openjdk-6
+#apt-get -y install openjdk-6-jdk
+#export LANG=C ALT_BOOTDIR=/usr/lib/jvm/java-6-openjdk ALLOW_DOWNLOADS=true
+#make all
 
 cd /home/matt/
 git clone git://gitorious.org/learn-python-the-hard-way/learn-python-the-hard-way.git
