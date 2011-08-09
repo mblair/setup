@@ -22,7 +22,6 @@ This is the tool I use to set up my Ubuntu workstations at home.
 * `ssh-keygen -q -b 4096 -t rsa -f /home/matt/.ssh/id_rsa`
 * `cat ~/.ssh/id_rsa.pub | xclip -selection clipboard`
 * Add the SSH key to GitHub.
-* `git config --global github.token <token>`
 * `git clone git@github.com:mblair/setup.git`
 * `git clone git@github.com:mblair/personal.git`
 * `byobu`
@@ -31,6 +30,7 @@ This is the tool I use to set up my Ubuntu workstations at home.
 * Change the password in `emailer.py`
 * Change power & screen saver settings.
 * `time ./setup.sh 2>&1 | tee /home/matt/output`
+* `git config --global github.token <token>`
 * Restart.
 * Open Firefox, download and install Dropbox.
 * Set chromium-browser settings: sync, download location, fonts, enable global menu support in about:flags.

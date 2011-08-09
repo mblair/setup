@@ -22,3 +22,8 @@ rvm use 1.9.2 --default
 
 #Because these rock.
 gem install bundler showoff capistrano rocco rails fpm redis sinatra json mail unicorn shotgun haml rack-parser rspec-rails cucumber sqlite3 jekyll rdiscount
+
+cd /home/matt/
+git clone git://gitorious.org/learnrubythehardway/learnrubythehardway.git
+cd learnrubythehardway
+jekyll --no-auto --pygments

@@ -81,6 +81,7 @@ git clone https://github.com/mblair/dotfiles
 chown -R matt:matt /home/matt/src
 chown -R matt:matt /home/matt/dotfiles
 chown matt:matt /home/matt/.bash_profile
+chown matt:matt /home/matt/Desktop/LearnPythonTheHardWay.pdf
 
 python $WD/emailer.py succeeded
 echo "Done!"

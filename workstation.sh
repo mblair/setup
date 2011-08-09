@@ -123,7 +123,7 @@ add-apt-repository ppa:pmcenery/ppa
 add-apt-repository ppa:janvitus/ppa
 apt-get update
 apt-get -y upgrade #for libimobiledevice1 and friends via pmcenery's ppa.
-apt-get -y install chromium-browser chromium-browser-inspector amule
+apt-get -y install chromium-browser amule
 
 if [ $d8 == "yes" ]; then
 	apt-get -y install libreadline-dev scons
@@ -210,7 +210,7 @@ apt-get -y remove empathy-common evolution-common transmission-common banshee gw
 su -l matt -c "gconftool-2 -t string -s /desktop/gnome/url-handlers/magnet/command 'deluge "%s"'"
 su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/needs_terminal false"
 su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/enabled true"
-su -l matt -c "xdg-mime default deluge.desktop x-scheme-handler/magnet"
+#su -l matt -c "xdg-mime default deluge.desktop x-scheme-handler/magnet"
 sed -i 's/Exec=deluge-gtk/Exec=deluge-gtk %U/' /usr/share/applications/deluge.desktop
 
 cd /home/matt/
@@ -228,10 +228,6 @@ cd learn-python-the-hard-way
 make latex
 cd _build/latex
 make all-pdf
-mv LearnPythonTheHardWay.pdf ~/Dropbox
+mv LearnPythonTheHardWay.pdf /home/matt/Desktop
 
-cd /home/matt/
-git clone git://gitorious.org/learnrubythehardway/learnrubythehardway.git
-cd learnrubythehardway
-jekyll --no-auto --pygments
-cp -R _site/* /var/www/
+cp -R /home/matt/src/learnrubythehardway/_site/* /var/www/
