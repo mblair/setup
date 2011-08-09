@@ -36,14 +36,15 @@ This is the tool I use to set up my Ubuntu workstations at home.
 * Set chromium-browser settings: sync, download location, fonts.
 * Configure gnome-terminal & Nautilus.
 * Configure the rest of the system settings.
-* `ssh-copy-id shortname` for all of my servers.
 * Remove the first entries (GitHub) from `~/.ssh/known_hosts` since they were added before HashKnownHosts was turned off.
+* Hit 'Install Drivers' to get the restricted drivers tray icon to go away on your laptop (boo Broadcom).
+* Install [this](https://addons.mozilla.org/en-US/firefox/addon/video-downloadhelper/)
+
+* `ssh-copy-id shortname` for all of my servers.
 * Build thumbnails.
 * Install Virtualbox Extension Pack, guest OSs & Guest Additions.
 * Configure Rhythmbox (may no longer be necessary).
 * Configure Deluge (download location, ports, bandwidth) (may no longer be necessary)
-* Hit 'Install Drivers' to get the restricted drivers tray icon to go away on your laptop (boo Broadcom).
-* Install [this](https://addons.mozilla.org/en-US/firefox/addon/video-downloadhelper/)
 
 ## TODO
 
