@@ -231,3 +231,7 @@ make all-pdf
 mv LearnPythonTheHardWay.pdf /home/matt/Desktop
 
 cp -R /home/matt/src/learnrubythehardway/_site/* /var/www/
+chown -R matt:matt /var/www/
+
+cd /home/matt
+git clone git@github.com:mblair/ruby_the_hard_way
