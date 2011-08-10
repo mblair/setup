@@ -223,7 +223,7 @@ sed -i 's/Exec=deluge-gtk/Exec=deluge-gtk %U/' /usr/share/applications/deluge.de
 #make all
 
 cd /home/matt/
-git clone git://gitorious.org/learn-python-the-hard-way/learn-python-the-hard-way.git
+git clone git://gitorious.org/learn-python-the-hard-way/learn-python-the-hard-way
 cd learn-python-the-hard-way
 make latex
 cd _build/latex
