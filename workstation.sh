@@ -131,7 +131,7 @@ if [ $d8 == "yes" ]; then
 	cd /home/matt/src
 	svn co http://v8.googlecode.com/svn/trunk v8
 	cd v8
-	scons arch=x64 console=readline d8
+	scons -j3 arch=x64 console=readline d8
 	cd /usr/local/bin
 	ln -s /home/matt/src/v8/d8 d8
 fi

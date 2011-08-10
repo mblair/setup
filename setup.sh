@@ -42,7 +42,7 @@ done
 
 #Default values.
 echo "${python="no"}"
-echo "${d8="no"}"
+echo "${d8="yes"}"
 echo "${clang="no"}"
 
 arch
