@@ -235,3 +235,23 @@ chown -R matt:matt /var/www/
 
 cd /home/matt
 git clone git@github.com:mblair/ruby_the_hard_way
+
+#Clone these repos:
+#https://github.com/dainelvera/Vimeo-Video-Downloader
+#https://github.com/bf4/vimeo_downloader/
+#https://github.com/jordansissel/fpm
+#https://github.com/sstephenson/ruby-build
+#https://github.com/jamesgolick/rollout
+#https://github.com/jamesgolick/degrade
+#https://github.com/reinh/statsd
+#https://github.com/jamesgolick/rigger
+#https://github.com/fetep/pencil
+#https://github.com/johnewart/ruby-metrics
+#https://github.com/etsy/deployinator
+#https://github.com/sstephenson/rbenv
+#https://github.com/lenary/ginatra
+#https://github.com/danlucraft/retwis-rb
+#https://github.com/defunkt/cijoe
+#https://github.com/auxesis/visage
+#https://github.com/flogic/whiskey_disk
+#https://github.com/danielsdeleo/critical

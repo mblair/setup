@@ -69,6 +69,7 @@ su -l matt -c "/opt/ruby.sh"
 . $WD/python.sh
 . $WD/vim.sh
 . $WD/workstation.sh
+. $WD/node.sh
 
 curl http://betterthangrep.com/ack-standalone > /usr/local/bin/ack
 chmod 0755 /usr/local/bin/ack

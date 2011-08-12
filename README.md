@@ -4,22 +4,9 @@ This is the tool I use to set up my Ubuntu workstations at home.
 
 ## USAGE
 
-### Here's how I test using a Linode:
-
-* `apt-get update && apt-get -y install git byobu`
-* `byobu`
-* `ssh-keygen -q -b 4096 -t rsa -N [passphrase] -f /root/.ssh/id_rsa`
-* Add the SSH key to GitHub.
-* `git clone git@github.com:mblair/setup.git`
-* `git clone git@github.com:mblair/personal.git`
-* `cd setup`
-* Change the password in `emailer.py`
-* `time ./setup.sh 2>&1 | tee ~/output`
-
-### Here's how I set up a workstation:
 * Enter wireless password.
 * `sudo apt-get update && sudo apt-get -y install xclip git byobu`
-* `ssh-keygen -q -b 4096 -t rsa -f /home/matt/.ssh/id_rsa`
+* `ssh-keygen -q -b 4096 -t rsa -N [passphrase] -f /home/matt/id_rsa`
 * `cat ~/.ssh/id_rsa.pub | xclip -selection clipboard`
 * Add the SSH key to GitHub.
 * `git clone git@github.com:mblair/setup.git`
