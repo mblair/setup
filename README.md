@@ -6,17 +6,18 @@ This is the tool I use to set up my Ubuntu workstations at home.
 
 * Enter wireless password.
 * `sudo apt-get update && sudo apt-get -y install xclip git byobu`
+* `byobu`
 * `ssh-keygen -q -b 4096 -t rsa -N [passphrase] -f /home/matt/id_rsa`
 * `cat ~/.ssh/id_rsa.pub | xclip -selection clipboard`
 * Add the SSH key to GitHub.
 * `git clone git@github.com:mblair/setup.git`
 * `git clone git@github.com:mblair/personal.git`
-* `byobu`
-* `sudo su`
+* `git clone git@github.com:mblair/ruby_the_hard_way.git`
 * `cd setup`
+* `sudo su`
 * Change the password in `emailer.py`
-* Change power & screen saver settings.
 * `time ./setup.sh 2>&1 | tee /home/matt/output`
+* Change power & screen saver settings.
 * `git config --global github.token <token>`
 * Restart.
 * Open Firefox, download and install Dropbox.
