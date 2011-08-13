@@ -236,7 +236,7 @@ chown -R matt:matt /var/www/
 cd /home/matt
 git clone git@github.com:mblair/ruby_the_hard_way
 
-#Clone these repos:
+#Clone these repos (interesting Ruby projects to read):
 #https://github.com/dainelvera/Vimeo-Video-Downloader
 #https://github.com/bf4/vimeo_downloader/
 #https://github.com/jordansissel/fpm
