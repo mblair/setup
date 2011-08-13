@@ -25,3 +25,25 @@ cd /home/matt/src
 git clone git://gitorious.org/learnrubythehardway/learnrubythehardway
 cd learnrubythehardway
 jekyll --no-auto --pygments
+cp -R _site/* /var/www/
+
+# Interesting Ruby projects to read:
+cd /home/matt/ruby_repos
+git clone https://github.com/auxesis/visage
+git clone https://github.com/bf4/vimeo_downloader/
+git clone https://github.com/dainelvera/Vimeo-Video-Downloader
+git clone https://github.com/danielsdeleo/critical
+git clone https://github.com/danlucraft/retwis-rb
+git clone https://github.com/defunkt/cijoe
+git clone https://github.com/etsy/deployinator
+git clone https://github.com/fetep/pencil
+git clone https://github.com/flogic/whiskey_disk
+git clone https://github.com/jamesgolick/degrade
+git clone https://github.com/jamesgolick/rigger
+git clone https://github.com/jamesgolick/rollout
+git clone https://github.com/johnewart/ruby-metrics
+git clone https://github.com/jordansissel/fpm
+git clone https://github.com/lenary/ginatra
+git clone https://github.com/reinh/statsd
+git clone https://github.com/sstephenson/rbenv
+git clone https://github.com/sstephenson/ruby-build
