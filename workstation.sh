@@ -213,7 +213,7 @@ su -l matt -c "gconftool-2 -t bool -s /desktop/gnome/url-handlers/magnet/enabled
 #su -l matt -c "xdg-mime default deluge.desktop x-scheme-handler/magnet"
 sed -i 's/Exec=deluge-gtk/Exec=deluge-gtk %U/' /usr/share/applications/deluge.desktop
 
-#cd /home/matt/
+#cd /home/matt/src
 #hg clone http://hg.openjdk.java.net/jdk7/jdk7 openjdk
 #cd openjdk/
 #sh ./get_source.sh
@@ -222,7 +222,7 @@ sed -i 's/Exec=deluge-gtk/Exec=deluge-gtk %U/' /usr/share/applications/deluge.de
 #export LANG=C ALT_BOOTDIR=/usr/lib/jvm/java-6-openjdk ALLOW_DOWNLOADS=true
 #make all
 
-cd /home/matt/
+cd /home/matt/src
 git clone git://gitorious.org/learn-python-the-hard-way/learn-python-the-hard-way
 cd learn-python-the-hard-way
 make latex
