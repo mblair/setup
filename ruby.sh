@@ -46,6 +46,9 @@ git clone https://github.com/johnewart/ruby-metrics
 git clone https://github.com/jordansissel/fpm
 git clone https://github.com/lenary/ginatra
 git clone https://github.com/lusis/Noah
+git clone https://github.com/mojombo/grit
 git clone https://github.com/reinh/statsd
+git clone https://github.com/sinatra/sinatra-book
+git clone https://github.com/sinatra/sinatra-book-contrib
 git clone https://github.com/sstephenson/rbenv
 git clone https://github.com/sstephenson/ruby-build
