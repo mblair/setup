@@ -105,7 +105,7 @@ apt-get install -y miredo subversion unrar rar cfv \
 	ttf-droid pandoc ubuntu-restricted-extras \
 	k3b rhythmbox vlc mp3fs testdisk gddrescue \
 	texlive-latex-recommended texlive-xetex texlive-latex-extra \
-	texlive-fonts-recommended redshift deluge apache2
+	texlive-fonts-recommended redshift deluge apache2 calibre
 
 chown -R matt:matt /var/www/
 

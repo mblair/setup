@@ -45,6 +45,7 @@ git clone https://github.com/jamesgolick/rollout
 git clone https://github.com/johnewart/ruby-metrics
 git clone https://github.com/jordansissel/fpm
 git clone https://github.com/lenary/ginatra
+git clone https://github.com/lusis/Noah
 git clone https://github.com/reinh/statsd
 git clone https://github.com/sstephenson/rbenv
 git clone https://github.com/sstephenson/ruby-build
