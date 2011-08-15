@@ -20,7 +20,7 @@ rvm use 1.9.3 --default
 gem update --system
 
 #Because these rock.
-gem install bundler showoff capistrano rocco rails fpm redis sinatra json mail unicorn shotgun haml rack-parser rspec-rails cucumber sqlite3 jekyll rdiscount em-hiredis em-websocket
+gem install bundler showoff capistrano rocco rails fpm redis sinatra json mail unicorn shotgun haml rack-parser rspec-rails cucumber sqlite3 jekyll rdiscount em-hiredis em-websocket sass
 
 cd /home/matt/src
 git clone git://gitorious.org/learnrubythehardway/learnrubythehardway
