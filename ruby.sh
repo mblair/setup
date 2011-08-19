@@ -15,6 +15,7 @@ echo 'update: --no-rdoc --no-ri' >> /home/matt/.gemrc
 echo "--drb" > /home/matt/.rspec
 echo "--colour" >> /home/matt/.rspec
 
+rvm install 1.9.2 --docs #Need this for Octopress :-/
 rvm install 1.9.3 --docs #RVM doesn't install ri documentation by default.
 rvm use 1.9.3 --default
 gem update --system
@@ -27,6 +28,17 @@ git clone git://gitorious.org/learnrubythehardway/learnrubythehardway
 cd learnrubythehardway
 jekyll --no-auto --pygments
 cp -R _site/* /var/www/
+
+cd /home/matt
+git clone git@github.com:mblair/mblair.github.com
+cd mblair.github.com
+rvm use 1.9.2
+git remote add octopress git://github.com/imathis/octopress.git
+gem install bundler
+git checkout source
+bundle install
+git clone git@github.com:mblair/mblair.github.com _deploy
+rake config_deploy[master]
 
 # Interesting Ruby projects to read:
 cd /home/matt/ruby_repos
