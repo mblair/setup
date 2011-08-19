@@ -39,6 +39,7 @@ git clone https://github.com/defunkt/cijoe
 git clone https://github.com/etsy/deployinator
 git clone https://github.com/fetep/pencil
 git clone https://github.com/flogic/whiskey_disk
+git clone https://github.com/integrity/integrity
 git clone https://github.com/jamesgolick/degrade
 git clone https://github.com/jamesgolick/rigger
 git clone https://github.com/jamesgolick/rollout
