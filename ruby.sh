@@ -39,6 +39,8 @@ git checkout source
 bundle install
 git clone git@github.com:mblair/mblair.github.com _deploy
 rake config_deploy[master]
+mkdir public # Octopress' sitemap_generator.rb bails without this.
+rake generate
 
 # Interesting Ruby projects to read:
 cd /home/matt/ruby_repos
