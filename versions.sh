@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-GIT_VER=1.7.6 #http://git-scm.com/
+GIT_VER=1.7.6.1 #http://git-scm.com/
 #SQLITE_VER=3070701 #http://www.sqlite.org/download.html
 PYTHON_VER=2.7.2 #http://python.org/download/
 PYTHON_SHORT_VER="`echo $PYTHON_VER | cut -f1 -d"."`.`echo $PYTHON_VER | cut -f2 -d"."`"
