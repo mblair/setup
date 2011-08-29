@@ -28,7 +28,7 @@ system_update() {
 	if [ $OS = "Ubuntu" ]; then
 		apt-get update
 		apt-get -y dist-upgrade
-		apt-get install -y bash-completion locate ntp htop build-essential debian-archive-keyring pigz gettext dpkg-dev nload curl apt-file sloccount tree irssi libbz2-dev fossil
+		apt-get install -y bash-completion locate ntp htop build-essential debian-archive-keyring pigz gettext dpkg-dev nload curl apt-file sloccount tree irssi libbz2-dev
 		apt-get update #because of debian-archive-keyring
 		apt-file update	
 
