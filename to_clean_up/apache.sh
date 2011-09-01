@@ -1,7 +1,7 @@
 set -e
 set -x
 
-APACHE_VER=2.2.19
+APACHE_VER=2.2.20
 
 cd /home/matt/src
 wget http://www.apache.org/dist/httpd/httpd-$APACHE_VER.tar.bz2
