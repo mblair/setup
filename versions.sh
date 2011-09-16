@@ -18,7 +18,7 @@ PERCONA_55_VER=21.0 #http://www.percona.com/software/percona-server/downloads/
 POSTGRES_VER=9.1.0 #http://www.postgresql.org/ftp/source/
 LLVM_VER=2.9 #http://llvm.org/releases/
 NGINX_VER=1.0.6 #http://nginx.org/en/download.html
-NODE_VER=0.4.11 #http://nodejs.org/dist/
+NODE_VER=0.4.12 #http://nodejs.org/dist/
 PIDGIN_VER=2.10.0 #http://pidgin.im/download/source/
 
 IRC_PASS=changeme
