@@ -15,10 +15,10 @@ PERCONA_51_VER=12.9 #http://www.percona.com/software/percona-server/downloads/
 PERCONA_MYSQL_55_SHORT_VER=5.5
 PERCONA_MYSQL_55_VER=5.5.15 #http://www.percona.com/software/percona-server/downloads/
 PERCONA_55_VER=21.0 #http://www.percona.com/software/percona-server/downloads/
-POSTGRES_VER=9.1.0 #http://www.postgresql.org/ftp/source/
+POSTGRES_VER=9.1.1 #http://www.postgresql.org/ftp/source/
 LLVM_VER=2.9 #http://llvm.org/releases/
 NGINX_VER=1.0.6 #http://nginx.org/en/download.html
-NODE_VER=0.4.12 #http://nodejs.org/dist/
+NODEJS_VER=0.4.12 #http://nodejs.org/dist/
 PIDGIN_VER=2.10.0 #http://pidgin.im/download/source/
 
 IRC_PASS=changeme
