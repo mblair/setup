@@ -3,8 +3,8 @@ apt-get install -y libexpat1-dev gettext libcurl4-gnutls-dev libssl-dev zlib1g-d
 apt-get -y purge git-core git
 
 cd /home/matt/src
-wget http://www.alpaca-farm.lkams.kernel.org/pub/software/scm/git/git-$GIT_VER.tar.bz2
-tar xjvf git-$GIT_VER.tar.bz2
+wget http://git-core.googlecode.com/files/git-$GIT_VER.tar.gz
+tar xzvf git-$GIT_VER.tar.gz
 cd git-$GIT_VER
 mkdir /tmp/gitdir
 make -j3 all DESTDIR=/tmp/gitdir prefix=/usr/local
