@@ -1,3 +1,4 @@
+#Don't forget the git clone!
 cd /home/matt/dotfiles
 ln -s /home/matt/dotfiles/gitconfig /home/matt/.gitconfig
 echo '.*.sw[a-z]' > /home/matt/.gitignore_global
@@ -34,4 +35,5 @@ cp /home/matt/src/vim/runtime/macros/matchit.txt /home/matt/dotfiles/vim/doc/
 
 mv /home/matt/.bashrc /home/matt/.bashrc.default
 ln -s /home/matt/dotfiles/bashrc /home/matt/.bashrc
-ln -s /home/matt/dotfiles/inputrc /home/matt/.inputrc
+echo '$include /etc/inputrc' > /home/matt/.inputrc
+cat /home/matt/dotfiles/inputrc >> /home/matt/.inputrc
