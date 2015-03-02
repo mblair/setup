@@ -84,4 +84,4 @@ This is the tool I use to set up my Ubuntu workstations at home.
 
 ## LICENSE
 
-MIT. See `LICENSE` for details.
+MIT. See [LICENSE](LICENSE) for details.
